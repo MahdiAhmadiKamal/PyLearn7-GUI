@@ -1,8 +1,11 @@
+# import math
 from PySide6.QtWidgets import QApplication
 from PySide6.QtUiTools import QUiLoader
+import math
 
 
-
+def clean():
+    main_window.txtbox.setText("")
 
 def point():
     e = main_window.txtbox.text()
@@ -81,6 +84,49 @@ def percent():
     c = (a/b)*100
     main_window.txtbox.setText(str(c))
 
+def sin():
+    rad = float(main_window.txtbox.text())*math.pi/180
+    a = math.sin(rad)
+    main_window.txtbox.setText(str(a))
+
+
+def cos():
+    rad = float(main_window.txtbox.text())*math.pi/180
+    a = math.cos(rad)
+    main_window.txtbox.setText(str(a))
+
+def tan():
+    rad = float(main_window.txtbox.text())*math.pi/180
+    if rad == 90*math.pi/180:
+        main_window.txtbox.setText("It is undefined.")
+    else:
+        a = math.tan(rad)
+        main_window.txtbox.setText(str(a))
+
+def cot():
+    rad = float(main_window.txtbox.text())*math.pi/180
+    if rad == 0:
+        main_window.txtbox.setText("It is undefined.")
+    else:
+        a = 1/(math.tan(rad))
+        main_window.txtbox.setText(str(a))
+
+def log():
+    a = float(main_window.txtbox.text())
+    if a < 0:
+        main_window.txtbox.setText("It is undefined.")
+    else:
+        b = math.log10(a)
+        main_window.txtbox.setText(str(b))
+
+def sqrt():
+    a = float(main_window.txtbox.text())
+    if a < 0:
+        main_window.txtbox.setText("It is undefined.")
+    else:
+        b = math.sqrt(a)
+        main_window.txtbox.setText(str(b))
+
 def result():
     b = float(main_window.txtbox.text())
     if operator == "+":
@@ -93,7 +139,7 @@ def result():
         if b!=0:
             c = a/b
         elif b==0:
-            main_window.txtbox.setText("cannot devide by zero")
+            main_window.txtbox.setText("It is undefined.")
 
 
     main_window.txtbox.setText(str(c))
@@ -104,8 +150,8 @@ main_window = loader.load("main.ui")
 main_window.show()
 
 
-main_window.btn_percent.clicked.connect(percent)
-main_window.btn_slash.clicked.connect(point)
+main_window.btn_clean.clicked.connect(clean)
+main_window.btn_point.clicked.connect(point)
 main_window.btn_0.clicked.connect(num_0)     # to connect the key to its function
 main_window.btn_1.clicked.connect(num_1)
 main_window.btn_2.clicked.connect(num_2)
@@ -120,6 +166,13 @@ main_window.btn_sum.clicked.connect(sum)
 main_window.btn_sub.clicked.connect(sub)
 main_window.btn_mul.clicked.connect(mul)
 main_window.btn_div.clicked.connect(div)
+main_window.btn_percent.clicked.connect(percent)
+main_window.btn_sin.clicked.connect(sin)
+main_window.btn_cos.clicked.connect(cos)
+main_window.btn_tan.clicked.connect(tan)
+main_window.btn_cot.clicked.connect(cot)
+main_window.btn_log.clicked.connect(log)
+main_window.btn_sqrt.clicked.connect(sqrt)
 main_window.btn_equal.clicked.connect(result)
 
 app.exec()
