@@ -61,9 +61,12 @@ def sum():
 def sub():
     global a
     global operator
-    a = float(main_window.txtbox.text())
-    operator = "-"
-    main_window.txtbox.setText("")
+    try:
+        a = float(main_window.txtbox.text())
+        operator = "-"
+        main_window.txtbox.setText("")
+    except(ValueError):
+        main_window.txtbox.setText("-")
 
 def mul():
     global a

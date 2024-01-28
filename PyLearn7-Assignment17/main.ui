@@ -49,6 +49,12 @@
       <height>41</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Arial</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
    </widget>
    <widget class="QPushButton" name="btn_sub">
     <property name="geometry">
@@ -107,7 +113,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -130,7 +136,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -153,7 +159,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -176,7 +182,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -199,7 +205,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -222,7 +228,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -245,7 +251,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -268,7 +274,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -291,7 +297,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -360,7 +366,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -389,7 +395,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -412,7 +418,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -435,7 +441,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>25</pointsize>
       <bold>false</bold>
      </font>
@@ -458,8 +464,9 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>15</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -486,8 +493,9 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>15</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -514,8 +522,9 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>15</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -542,8 +551,9 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>15</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -570,8 +580,9 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>15</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
@@ -598,8 +609,9 @@
     </property>
     <property name="font">
      <font>
-      <family>Broadway</family>
+      <family>Arial</family>
       <pointsize>15</pointsize>
+      <bold>false</bold>
      </font>
     </property>
     <property name="styleSheet">
