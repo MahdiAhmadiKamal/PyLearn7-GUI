@@ -52,7 +52,7 @@
     <property name="font">
      <font>
       <family>Arial</family>
-      <pointsize>20</pointsize>
+      <pointsize>15</pointsize>
      </font>
     </property>
    </widget>
