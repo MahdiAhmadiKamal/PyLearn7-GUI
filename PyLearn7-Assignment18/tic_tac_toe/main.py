@@ -49,18 +49,10 @@ def play(row, col):
         buttons[row][col].setText("X")
         buttons[row][col].setStyleSheet("color: red; background-color: pink;")
         count.append("1")
+        check(row, col)
         player = "cpu"
-        if player == "cpu":
-            while True:
-                row = random.randint(0, 2)
-                col = random.randint(0, 2)
-            
-                if buttons[row][col].text()=="":
-                    buttons[row][col].setText("O")
-                    buttons[row][col].setStyleSheet("color: blue; background-color: lightblue")
-                    
-                    break
-            player = "Player"
+        game_mode_1()
+        
 
     check(row, col)
 
@@ -75,18 +67,37 @@ def new_game():
 
 def game_mode_1():
     global player
-    player = "Player"
+    if player == "cpu":
+        while True:
+            row = random.randint(0, 2)
+            col = random.randint(0, 2)
+            
+            if buttons[row][col].text()=="":
+                buttons[row][col].setText("O")
+                buttons[row][col].setStyleSheet("color: blue; background-color: lightblue")
+                    
+                break
+        check(row, col)
+        player = "Player"
+    elif player == "Player":
+        for i in range (3):
+            for j in range (3):
+                buttons[i][j].clicked.connect(partial(play, i, j))
+    
 
 def game_mode_2():
     global player
     player = "Player 1"
+    for i in range (3):
+        for j in range (3):
+            buttons[i][j].clicked.connect(partial(play, i, j))
 
 loader = QUiLoader()
 app = QApplication(sys.argv)
 
 
 
-# player = "Player 1"
+player = "Player"
 
 main_window = loader.load("main_window.ui")
 main_window.show()
@@ -95,9 +106,9 @@ buttons = [[main_window.btn_1, main_window.btn_2, main_window.btn_3],
            [main_window.btn_4, main_window.btn_5, main_window.btn_6],
            [main_window.btn_7, main_window.btn_8, main_window.btn_9]]
 
-for i in range (3):
-    for j in range (3):
-        buttons[i][j].clicked.connect(partial(play, i, j))
+# for i in range (3):
+#     for j in range (3):
+#         buttons[i][j].clicked.connect(partial(play, i, j))
 
 main_window.btn_newgame.clicked.connect(new_game)
 main_window.player_vs_cpu.clicked.connect(game_mode_1)
