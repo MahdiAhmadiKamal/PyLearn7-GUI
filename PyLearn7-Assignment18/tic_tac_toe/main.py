@@ -9,15 +9,22 @@ score_x = 0
 score_o = 0
 score_tie = 0
 
+def about():
+    f = open("about.txt", "r")
+    r = f.read()
+    about_box = QMessageBox(text=r)
+    about_box.setWindowTitle("about Tic Tac Toe")
+    about_box.exec()
+    
 def add_score():
     global player
     global score_x
     global score_o
 
-    if player == "Player 1":
+    if player == "Player 1" or player == "Player":
         score_x += 1
         main_window.scoreboard_x.setText(str(score_x))
-    elif player == "Player 2":
+    elif player == "Player 2" or player == "cpu":
         score_o += 1
         main_window.scoreboard_o.setText(str(score_o))
 
@@ -75,7 +82,6 @@ def play(row, col):
             game_mode_1()
         
 
-    # check(row, col)
 
 
 def new_game():
@@ -121,6 +127,7 @@ app = QApplication(sys.argv)
 player = "Player"
 
 main_window = loader.load("main_window.ui")
+main_window.setWindowTitle("Tic Tac Toe")
 main_window.show()
 
 main_window.scoreboard_x.setText(str(score_x))
@@ -135,9 +142,11 @@ buttons = [[main_window.btn_1, main_window.btn_2, main_window.btn_3],
 #     for j in range (3):
 #         buttons[i][j].clicked.connect(partial(play, i, j))
 
-main_window.btn_newgame.clicked.connect(new_game)
+
+main_window.btn_new_game.clicked.connect(new_game)
 main_window.player_vs_cpu.clicked.connect(game_mode_1)
 main_window.player_vs_player.clicked.connect(game_mode_2)
+main_window.btn_about.clicked.connect(about)
 
 
 
