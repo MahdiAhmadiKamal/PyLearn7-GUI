@@ -9,6 +9,7 @@ score_x = 0
 score_o = 0
 score_tie = 0
 
+
 def about():
     f = open("about.txt", "r")
     r = f.read()
@@ -61,36 +62,33 @@ def play(row, col):
     if player == "Player 1":
         if buttons[row][col].text()=="":
             buttons[row][col].setText("X")
-            buttons[row][col].setStyleSheet("color: #31c3bc; border-radius:15px;")
+            buttons[row][col].setStyleSheet("color: #31c3bc; background-color: #274250; border-radius:15px;")
             count.append("1")
             check(row, col)
             player = "Player 2"
     elif player == "Player 2":
         if buttons[row][col].text()=="":
             buttons[row][col].setText("O")
-            buttons[row][col].setStyleSheet("color: #f2b137; border-radius:15px;")
+            buttons[row][col].setStyleSheet("color: #f2b137; background-color: #274250; border-radius:15px;")
             count.append("2")
             check(row, col)
             player = "Player 1"
     elif player == "Player":
         if buttons[row][col].text()=="":
             buttons[row][col].setText("X")
-            buttons[row][col].setStyleSheet("color: #31c3bc; border-radius:15px;")
+            buttons[row][col].setStyleSheet("color: #31c3bc; background-color: #274250; border-radius:15px;")
             count.append("1")
             check(row, col)
             player = "cpu"
             game_mode_1()
-        
-
-
 
 def new_game():
     count.clear()
+    
     for row in range(3):
         for col in range (3):
             buttons[row][col].setText("")
-            buttons[row][col].setStyleSheet("")
-
+            buttons[row][col].setStyleSheet("color: #1f3540; background-color: #1f3540; border-radius:15px;")
 
 def game_mode_1():
     global player
@@ -101,7 +99,7 @@ def game_mode_1():
             
             if buttons[row][col].text()=="":
                 buttons[row][col].setText("O")
-                buttons[row][col].setStyleSheet("color: #f2b137; border-radius:15px;")
+                buttons[row][col].setStyleSheet("color: #f2b137; background-color: #274250; border-radius:15px;")
                 count.append("2")
                 break
         check(row, col)
@@ -119,10 +117,10 @@ def game_mode_2():
         for j in range (3):
             buttons[i][j].clicked.connect(partial(play, i, j))
 
+
+
 loader = QUiLoader()
 app = QApplication(sys.argv)
-
-
 
 player = "Player"
 
@@ -138,16 +136,10 @@ buttons = [[main_window.btn_1, main_window.btn_2, main_window.btn_3],
            [main_window.btn_4, main_window.btn_5, main_window.btn_6],
            [main_window.btn_7, main_window.btn_8, main_window.btn_9]]
 
-# for i in range (3):
-#     for j in range (3):
-#         buttons[i][j].clicked.connect(partial(play, i, j))
-
 
 main_window.btn_new_game.clicked.connect(new_game)
 main_window.player_vs_cpu.clicked.connect(game_mode_1)
 main_window.player_vs_player.clicked.connect(game_mode_2)
 main_window.btn_about.clicked.connect(about)
-
-
 
 app.exec()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>587</width>
-    <height>617</height>
+    <width>602</width>
+    <height>619</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -52,10 +52,10 @@
       </property>
       <property name="styleSheet">
        <string notr="true">background-color: rgb(49, 195, 188);
-</string>
+border-radius:5px</string>
       </property>
       <property name="title">
-       <string>X score</string>
+       <string>X score:</string>
       </property>
      </widget>
     </item>
@@ -91,7 +91,7 @@
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:rgb(31, 53, 64);
-
+border-radius:15px
 </string>
       </property>
       <property name="text">
@@ -130,6 +130,25 @@ color: rgb(49, 195, 188)
       </property>
      </widget>
     </item>
+    <item row="6" column="0">
+     <widget class="QRadioButton" name="player_vs_cpu">
+      <property name="font">
+       <font>
+        <family>Showcard Gothic</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(242, 177, 55)</string>
+      </property>
+      <property name="text">
+       <string>player vs cpu</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
     <item row="5" column="1">
      <widget class="QPushButton" name="btn_8">
       <property name="sizePolicy">
@@ -146,7 +165,7 @@ color: rgb(49, 195, 188)
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:rgb(31, 53, 64);
-
+border-radius:15px
 </string>
       </property>
       <property name="text">
@@ -170,7 +189,7 @@ color: rgb(49, 195, 188)
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:rgb(31, 53, 64);
-
+border-radius:15px
 </string>
       </property>
       <property name="text">
@@ -194,7 +213,7 @@ color: rgb(49, 195, 188)
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:rgb(31, 53, 64);
-
+border-radius:15px
 </string>
       </property>
       <property name="text">
@@ -218,7 +237,7 @@ color: rgb(49, 195, 188)
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:rgb(31, 53, 64);
-
+border-radius:15px
 </string>
       </property>
       <property name="text">
@@ -236,17 +255,37 @@ color: rgb(49, 195, 188)
       </property>
       <property name="font">
        <font>
-        <family>Arial Black</family>
+        <family>Segoe UI</family>
         <pointsize>26</pointsize>
+        <italic>true</italic>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(49, 195, 188)
-</string>
+       <string notr="true">background-color: rgb(49, 195, 188);
+border-radius:10px</string>
       </property>
       <property name="text">
        <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="7" column="0">
+     <widget class="QRadioButton" name="player_vs_player">
+      <property name="font">
+       <font>
+        <family>Showcard Gothic</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(242, 177, 55)</string>
+      </property>
+      <property name="text">
+       <string>player vs player</string>
+      </property>
+      <property name="checked">
+       <bool>false</bool>
       </property>
      </widget>
     </item>
@@ -260,13 +299,15 @@ color: rgb(49, 195, 188)
       </property>
       <property name="font">
        <font>
-        <family>Arial Black</family>
+        <family>Segoe UI</family>
         <pointsize>26</pointsize>
+        <italic>true</italic>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(168, 190, 201);</string>
+       <string notr="true">background-color: rgb(168, 190, 201);
+border-radius:10px</string>
       </property>
       <property name="text">
        <string/>
@@ -289,31 +330,7 @@ color: rgb(49, 195, 188)
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:rgb(31, 53, 64);
-
-</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="2">
-     <widget class="QPushButton" name="btn_9">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>40</pointsize>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color:rgb(31, 53, 64);
-
+border-radius:15px
 </string>
       </property>
       <property name="text">
@@ -337,7 +354,7 @@ color: rgb(49, 195, 188)
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:rgb(31, 53, 64);
-
+border-radius:15px
 </string>
       </property>
       <property name="text">
@@ -355,35 +372,18 @@ color: rgb(49, 195, 188)
       </property>
       <property name="font">
        <font>
-        <family>Arial Black</family>
+        <family>Segoe UI</family>
         <pointsize>26</pointsize>
+        <italic>true</italic>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(242, 177, 55)</string>
+       <string notr="true">background-color: rgb(242, 177, 55);
+border-radius:10px</string>
       </property>
       <property name="text">
        <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="0">
-     <widget class="QRadioButton" name="player_vs_player">
-      <property name="font">
-       <font>
-        <family>Showcard Gothic</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(242, 177, 55)</string>
-      </property>
-      <property name="text">
-       <string>player vs player</string>
-      </property>
-      <property name="checked">
-       <bool>true</bool>
       </property>
      </widget>
     </item>
@@ -403,7 +403,7 @@ color: rgb(49, 195, 188)
       </property>
       <property name="styleSheet">
        <string notr="true">background-color:rgb(31, 53, 64);
-
+border-radius:15px
 </string>
       </property>
       <property name="text">
@@ -436,11 +436,11 @@ color: rgb(49, 195, 188)
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(242, 177, 55)
-</string>
+       <string notr="true">background-color: rgb(242, 177, 55);
+border-radius:5px</string>
       </property>
       <property name="title">
-       <string>O score</string>
+       <string>O score:</string>
       </property>
      </widget>
     </item>
@@ -466,29 +466,35 @@ color: rgb(49, 195, 188)
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(168, 190, 201);</string>
+       <string notr="true">background-color: rgb(168, 190, 201);
+border-radius:5px</string>
       </property>
       <property name="title">
-       <string>Tie</string>
+       <string>Tie:</string>
       </property>
      </widget>
     </item>
-    <item row="6" column="0">
-     <widget class="QRadioButton" name="player_vs_cpu">
+    <item row="5" column="2">
+     <widget class="QPushButton" name="btn_9">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="font">
        <font>
-        <family>Showcard Gothic</family>
-        <pointsize>12</pointsize>
+        <pointsize>40</pointsize>
+        <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">color: rgb(242, 177, 55)</string>
+       <string notr="true">background-color:rgb(31, 53, 64);
+border-radius:15px
+</string>
       </property>
       <property name="text">
-       <string>player vs cpu</string>
-      </property>
-      <property name="checked">
-       <bool>false</bool>
+       <string/>
       </property>
      </widget>
     </item>
@@ -496,7 +502,6 @@ color: rgb(49, 195, 188)
    <zorder>btn_new_game</zorder>
    <zorder>btn_4</zorder>
    <zorder>btn_1</zorder>
-   <zorder>player_vs_player</zorder>
    <zorder>btn_3</zorder>
    <zorder>btn_6</zorder>
    <zorder>btn_7</zorder>
@@ -512,13 +517,14 @@ color: rgb(49, 195, 188)
    <zorder>groupBox_3</zorder>
    <zorder>btn_about</zorder>
    <zorder>player_vs_cpu</zorder>
+   <zorder>player_vs_player</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>587</width>
+     <width>602</width>
      <height>22</height>
     </rect>
    </property>
