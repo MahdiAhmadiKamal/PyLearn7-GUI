@@ -9,7 +9,7 @@
 ## Game Rules
 Tic-tac-toe is played on a three-by-three grid by two players, who alternately place the marks X and O in one of the nine spaces in the grid.The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner. You can either play with another player or with cpu.
 
-![Image](pics/Screenshot.png)
+<img src="pics\Screenshot.png" width="400" height="400">
 
 ---
 ## Python
