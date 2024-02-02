@@ -2,7 +2,6 @@ import math
 from functools import partial
 from PySide6.QtWidgets import QApplication
 from PySide6.QtUiTools import QUiLoader
-# import math
 
 
 def clean():
