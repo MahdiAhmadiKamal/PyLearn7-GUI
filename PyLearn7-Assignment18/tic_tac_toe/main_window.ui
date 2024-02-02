@@ -285,7 +285,7 @@ border-radius:10px</string>
        <string>player vs player</string>
       </property>
       <property name="checked">
-       <bool>false</bool>
+       <bool>true</bool>
       </property>
      </widget>
     </item>
