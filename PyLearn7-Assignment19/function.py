@@ -17,8 +17,6 @@ def non_repeating_random_2D_array(rows,cols):
 
     l= random_numbers
     # def convert_1d_to_2d(l, cols):
-    # return [l[i:i + cols] for i in range(0, len(l), cols)]
-    print([l[i:i + cols] for i in range(0, len(l), cols)])
-    
+    return [l[i:i + cols] for i in range(0, len(l), cols)]
 
-non_repeating_random_2D_array(4,4)
+    
