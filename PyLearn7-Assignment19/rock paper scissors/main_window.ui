@@ -283,7 +283,7 @@ border-radius:10px</string>
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="btn_result">
+   <widget class="QPushButton" name="result">
     <property name="geometry">
      <rect>
       <x>50</x>
