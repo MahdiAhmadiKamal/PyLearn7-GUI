@@ -1,14 +1,12 @@
 import sys
 import random
-from functools import partial
 from PySide6.QtWidgets import QApplication
 from PySide6.QtUiTools import QUiLoader
 from PySide6.QtGui import *
 
+
 number = random.randint(10,100)
 count = 0
-
-
 
 def check():
     global count
@@ -20,18 +18,16 @@ def check():
             main_window.result_board.setText("Congratulations, you win!")
             main_window.result_board_2.setText("You succeeded after")
             main_window.result_board_2_1.setText(str(count))
-            main_window.result_board_2_2.setText("tries")
-            main_window.result_board_3.setIcon(QIcon("icons8-congratulations-100.png"))
+            main_window.result_board_2_2.setText("tries.")
+            main_window.result_board_3.setIcon(QIcon("pics/icons8-congratulations-100.png"))
             
             break
 
         elif number > guessed_number:
             main_window.result_board.setText("Go up. ⬆")
-            print(number)
             break
         elif number < guessed_number:
             main_window.result_board.setText("Go down. ⬇")
-            print(number)
             break
 
 
@@ -42,6 +38,7 @@ main_window = loader.load("mainwindow.ui")
 main_window.setWindowTitle("Guess Number")
 main_window.show()
 
+main_window.board.setText("Pick a number between 10 to 100.")
 main_window.btn_check.clicked.connect(check)
 
 app.exec()

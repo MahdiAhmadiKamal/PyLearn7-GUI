@@ -6,25 +6,44 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>577</width>
-    <height>547</height>
+    <width>444</width>
+    <height>482</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>444</width>
+    <height>482</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>444</width>
+    <height>482</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(170, 0, 127)</string>
+   <string notr="true">background-color: rgb(183, 14, 255)</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLineEdit" name="txtbox">
     <property name="geometry">
      <rect>
       <x>80</x>
-      <y>160</y>
-      <width>191</width>
+      <y>70</y>
+      <width>131</width>
       <height>51</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Britannic Bold</family>
+      <pointsize>16</pointsize>
+      <bold>false</bold>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: rgb(255, 255, 255)</string>
@@ -33,9 +52,9 @@
    <widget class="QPushButton" name="btn_check">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>160</y>
-      <width>161</width>
+      <x>240</x>
+      <y>70</y>
+      <width>121</width>
       <height>51</height>
      </rect>
     </property>
@@ -46,18 +65,21 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: rgb(200, 19, 250)</string>
+     <string notr="true">background-color: rgb(250, 28, 136)</string>
     </property>
     <property name="text">
      <string>check</string>
+    </property>
+    <property name="autoDefault">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QPushButton" name="result_board">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>230</y>
-      <width>231</width>
+      <x>81</x>
+      <y>140</y>
+      <width>282</width>
       <height>61</height>
      </rect>
     </property>
@@ -92,9 +114,9 @@ border-radius:5px</string>
    <widget class="QPushButton" name="result_board_3">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>310</y>
-      <width>231</width>
+      <x>107</x>
+      <y>220</y>
+      <width>230</width>
       <height>141</height>
      </rect>
     </property>
@@ -119,8 +141,9 @@ border-radius:5px</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(170, 0, 127);
-border-radius:5px</string>
+     <string notr="true">background-color:rgb(183, 14, 255);
+border-radius:5px
+</string>
     </property>
     <property name="text">
      <string/>
@@ -135,8 +158,8 @@ border-radius:5px</string>
    <widget class="QPushButton" name="result_board_2">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>460</y>
+      <x>50</x>
+      <y>380</y>
       <width>221</width>
       <height>41</height>
      </rect>
@@ -162,8 +185,9 @@ border-radius:5px</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(170, 0, 127);
-border-radius:5px</string>
+     <string notr="true">background-color:rgb(183, 14, 255);
+border-radius:5px
+</string>
     </property>
     <property name="text">
      <string/>
@@ -172,8 +196,8 @@ border-radius:5px</string>
    <widget class="QPushButton" name="result_board_2_1">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>460</y>
+      <x>270</x>
+      <y>380</y>
       <width>50</width>
       <height>41</height>
      </rect>
@@ -199,8 +223,9 @@ border-radius:5px</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(170, 0, 127);
-border-radius:5px</string>
+     <string notr="true">background-color:rgb(183, 14, 255);
+border-radius:5px
+</string>
     </property>
     <property name="text">
      <string/>
@@ -209,9 +234,9 @@ border-radius:5px</string>
    <widget class="QPushButton" name="result_board_2_2">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>460</y>
-      <width>81</width>
+      <x>320</x>
+      <y>380</y>
+      <width>71</width>
       <height>41</height>
      </rect>
     </property>
@@ -236,8 +261,47 @@ border-radius:5px</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color:rgb(170, 0, 127);
-border-radius:5px</string>
+     <string notr="true">background-color:rgb(183, 14, 255);
+border-radius:5px
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="board">
+    <property name="geometry">
+     <rect>
+      <x>51</x>
+      <y>10</y>
+      <width>342</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>115</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Britannic Bold</family>
+      <pointsize>16</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(183, 14, 255);
+border-radius:5px
+</string>
     </property>
     <property name="text">
      <string/>
@@ -249,7 +313,7 @@ border-radius:5px</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>577</width>
+     <width>444</width>
      <height>22</height>
     </rect>
    </property>
