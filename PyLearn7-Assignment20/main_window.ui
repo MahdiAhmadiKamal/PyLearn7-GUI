@@ -162,7 +162,7 @@ border-radius:10px</string>
 border-radius:10px</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
     </property>
    </widget>
    <widget class="QPushButton" name="score_player">
@@ -199,7 +199,7 @@ border-radius:10px</string>
 border-radius:10px</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
     </property>
    </widget>
    <widget class="QPushButton" name="btn_front_hand">
@@ -435,7 +435,7 @@ border-radius:10px</string>
 border-radius:10px</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
