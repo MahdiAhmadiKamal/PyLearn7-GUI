@@ -7,7 +7,7 @@
 
 ---
 ## Game Rules
-The player may start by clicking on one of the two choices: palm facing up or down at the bottom of the game window. After comparing the player's choice with the computers', one of them scores unless all the three players have made the same choice. The first player to score 5 is the winner.
+The player may start by clicking on one of the two choices: palm facing up or down at the bottom of the game window. After comparing the player's choice with the computers', one of them scores unless all the three players have made the same choice. The first player to reach 5 points is the winner.
 
 <img src="pics\screenshot 4.png" width="731" height="535">
 
