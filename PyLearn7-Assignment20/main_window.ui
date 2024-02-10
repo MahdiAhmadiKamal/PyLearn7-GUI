@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>430</width>
+    <height>610</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>430</width>
+    <height>610</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>430</width>
+    <height>610</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(54, 53, 62);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>145</x>
+      <y>430</y>
+      <width>142</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Showcard Gothic</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(251, 149, 255);</string>
+    </property>
+    <property name="text">
+     <string>player</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>15</x>
+      <y>40</y>
+      <width>142</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Showcard Gothic</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(251, 149, 255);</string>
+    </property>
+    <property name="text">
+     <string>computer 1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="player_board">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>300</y>
+      <width>131</width>
+      <height>136</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>89</width>
+      <height>136</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>55</pointsize>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(54, 53, 62);
+border-radius:10px</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>89</width>
+      <height>136</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="score_cpu1">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>130</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>115</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Britannic Bold</family>
+      <pointsize>14</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(251, 149, 255);
+border-radius:10px</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="score_player">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>470</y>
+      <width>130</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>115</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Britannic Bold</family>
+      <pointsize>14</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(251, 149, 255);
+border-radius:10px</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_front_hand">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>510</y>
+      <width>120</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>120</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Broadway</family>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(62, 42, 62)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_back_hand">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>510</y>
+      <width>120</width>
+      <height>70</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>120</width>
+      <height>50</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Broadway</family>
+      <pointsize>12</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(62, 42, 62)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>48</width>
+      <height>48</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="result_board">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>194</y>
+      <width>115</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>115</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Britannic Bold</family>
+      <pointsize>14</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(54, 53, 62);
+border-radius:10px</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>96</width>
+      <height>96</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cpu1_board">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>80</y>
+      <width>131</width>
+      <height>136</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>89</width>
+      <height>136</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>55</pointsize>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(54, 53, 62);
+border-radius:10px</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>89</width>
+      <height>136</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="cpu2_board">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>80</y>
+      <width>131</width>
+      <height>136</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>89</width>
+      <height>136</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>55</pointsize>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(54, 53, 62);
+border-radius:10px</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>89</width>
+      <height>136</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="score_cpu2">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>10</y>
+      <width>130</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>115</width>
+      <height>20</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Britannic Bold</family>
+      <pointsize>14</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(251, 149, 255);
+border-radius:10px</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>275</x>
+      <y>40</y>
+      <width>142</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Showcard Gothic</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(251, 149, 255);</string>
+    </property>
+    <property name="text">
+     <string>computer 2</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>430</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
