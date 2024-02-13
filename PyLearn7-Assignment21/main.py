@@ -45,6 +45,13 @@ def remove():
     my_cursor.execute(f"DELETE FROM products WHERE ProductId = '{product_id}' AND Name = '{product_name}'")
     connection.commit()
 
+def search():
+    product_id = input("Enter the product id: ")
+    product_name = input("Enter the product name: ")
+    result = my_cursor.execute(f"SELECT * FROM products WHERE ProductId='{product_id}' OR Name='{product_name}'")
+    products = result.fetchall()
+    for product in products:
+        print(product)
 
 load_database()
 while True:
@@ -59,3 +66,13 @@ while True:
         edit()
     elif choice == 4:
         remove()
+    elif choice == 5:
+        search()
+    # elif choice == 6:
+    #     buy()
+    # elif choice == 7:
+    #     qr_code()
+    # elif choice == 8:
+    #     exit(0)
+    else:
+        print ("Enter a number between 1 and 8.")
