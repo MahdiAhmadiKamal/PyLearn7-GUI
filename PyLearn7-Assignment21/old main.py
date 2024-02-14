@@ -1,6 +1,8 @@
 import sqlite3
 
-selected_products=[]
+PRODUCT_IDs_LIST=[]
+PRODUCT_NAMEs_LIST=[]
+
 def show_menu():
     print("1. show list")
     print("2. add new")
@@ -17,30 +19,40 @@ def load_database():
     global product_ids
     connection = sqlite3.connect("store.db")
     my_cursor = connection.cursor()
+    
+    results = my_cursor.execute("SELECT * FROM products")
+    products = results.fetchall()
 
-    result = my_cursor.execute("SELECT ProductId FROM products")
-    product_ids = result.fetchall()
-    ll=list(product_ids)
-    print(ll)
-
+    for product in products:
+        PRODUCT_IDs_LIST.append(product[0])
+        PRODUCT_NAMEs_LIST.append(product[1])
+    
+    print(PRODUCT_IDs_LIST)
+    print(PRODUCT_NAMEs_LIST)
+        
 
 def show_list():
-    # for data in my_cursor.execute("SELECT * FROM customers WHERE Country = 'France'"):
-        # print(data)
+
+    print("\n list of products:")
 
     result = my_cursor.execute("SELECT * FROM products")
     products = result.fetchall()
 
     for product in products:
         print(product)
+    
+    print("")
 
 def add_new():
     new_name = input("Enter your new product name: ")
     new_price = int(input("Enter the price of your new product: "))
     new_count = int(input("Enter the number of your new product: "))
-    my_cursor.execute(f"INSERT INTO products (Name) VALUES ('{new_name}')")
-    my_cursor.execute(f"INSERT INTO products (Name) VALUES ('{new_price}')")
-    my_cursor.execute(f"INSERT INTO products (Name) VALUES ('{new_count}')")
+    my_cursor.execute(f"INSERT INTO products (Name, Price, Count) VALUES ('{new_name}', '{new_price}', '{new_count}')")
+
+    print("\nProduct added successfully:")
+    result = my_cursor.execute(f"SELECT * FROM products WHERE Name='{new_name}'")
+    new_product = result.fetchone()
+    print(new_product)
     connection.commit()
 
 def edit():
@@ -48,11 +60,16 @@ def edit():
     result = my_cursor.execute(f"SELECT * FROM products WHERE ProductId='{product_id}'")
     product = result.fetchone()
     print(product)
+
     new_price = input("Enter the new price: ")
     new_count = input("Enter the new count: ")
     my_cursor.execute(f"UPDATE products SET Price='{new_price}' WHERE ProductId='{product_id}'")
     my_cursor.execute(f"UPDATE products SET Count='{new_count}' WHERE ProductId='{product_id}'")
     
+    print("\nChanges applied successfully:")
+    result = my_cursor.execute(f"SELECT * FROM products WHERE ProductId='{product_id}'")
+    product = result.fetchone()
+    print(product)
     connection.commit()
 
 def remove():
@@ -60,8 +77,14 @@ def remove():
     result = my_cursor.execute(f"SELECT * FROM products WHERE ProductId='{product_id}'")
     product = result.fetchone()
     print(product)
-    my_cursor.execute(f"DELETE FROM products WHERE ProductId = '{product_id}'")
-    connection.commit()
+    
+    warning = input("You are removing a product from your products list. Are you sure? Y/N\n")
+    if warning=="Y" or warning=="y":
+        my_cursor.execute(f"DELETE FROM products WHERE ProductId = '{product_id}'")
+        connection.commit()
+        print("Changes applied successfully.\n")
+        
+
 
 def search():
     product_id = input("Enter the product id: ")
@@ -74,17 +97,18 @@ def search():
 def buy():
     
     while True:
-        product_id = input ("Enter 'f' to finish or enter the product id: ")
+        product_id = input("Enter 'f' to finish or enter the product ID: ")
         
         if product_id == "f":
             break
-        else:
+        elif int(product_id) in PRODUCT_IDs_LIST:
             result = my_cursor.execute(f"SELECT * FROM products WHERE ProductId='{product_id}'")
             product = result.fetchone()
             print(product)
 
             asked = int(input("How many of this product do you want? "))
 
+            print("\n...Your purchase so far...")
             my_cursor.execute(f"INSERT INTO purchased_products (ProductId, Name, Price) SELECT ProductId, Name, Price FROM products WHERE ProductId='{product_id}'")
             my_cursor.execute(f"UPDATE purchased_products SET Count='{asked}' WHERE ProductId='{product_id}'")
             
@@ -96,6 +120,9 @@ def buy():
            
             for purchased_product in purchased_products:
                 print(purchased_product)
+        
+        else:
+            print ('There is no product with this ID in stock.')
 
             
 load_database()
