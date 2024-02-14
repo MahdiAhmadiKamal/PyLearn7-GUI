@@ -84,15 +84,18 @@ def buy():
             print(product)
 
             asked = int(input("How many of this product do you want? "))
-            my_cursor.execute(f"INSERT INTO selected_products (ProductId, Name, Price) SELECT ProductId, Name, Price FROM products WHERE ProductId='{product_id}'")
-            my_cursor.execute(f"UPDATE selected_products SET Count='{asked}' WHERE ProductId='{product_id}'")
+
+            my_cursor.execute(f"INSERT INTO purchased_products (ProductId, Name, Price) SELECT ProductId, Name, Price FROM products WHERE ProductId='{product_id}'")
+            my_cursor.execute(f"UPDATE purchased_products SET Count='{asked}' WHERE ProductId='{product_id}'")
+            
+            my_cursor.execute(f"UPDATE products SET Count=Count-{asked} WHERE ProductId='{product_id}'")
             connection.commit()
 
-            result = my_cursor.execute(f"SELECT * FROM selected_products")
-            selected_products = result.fetchall()
-            # selected_products.append(selected_product)
-            for selected_product in selected_products:
-                print(selected_product)
+            result = my_cursor.execute(f"SELECT * FROM purchased_products")
+            purchased_products = result.fetchall()
+           
+            for purchased_product in purchased_products:
+                print(purchased_product)
 
             
 load_database()
