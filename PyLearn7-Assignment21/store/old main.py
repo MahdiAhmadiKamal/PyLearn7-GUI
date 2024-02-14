@@ -3,6 +3,7 @@ import sqlite3
 PRODUCT_IDs_LIST=[]
 PRODUCT_NAMEs_LIST=[]
 
+print ("\n...Welcome to my clothing store application...\n")
 def show_menu():
     print("1. show list")
     print("2. add new")
@@ -10,8 +11,7 @@ def show_menu():
     print("4. remove")
     print("5. search")
     print("6. buy")
-    print("7. qr code")
-    print("8. exit")
+    print("7. exit")
 
 def load_database():
     global connection
@@ -26,15 +26,12 @@ def load_database():
     for product in products:
         PRODUCT_IDs_LIST.append(product[0])
         PRODUCT_NAMEs_LIST.append(product[1])
-    
-    print(PRODUCT_IDs_LIST)
-    print(PRODUCT_NAMEs_LIST)
-        
+            
 
 def show_list():
 
-    print("\n list of products:")
-
+    print("\nlist of products:")
+    print ("\nID   name   price   count\n")
     result = my_cursor.execute("SELECT * FROM products")
     products = result.fetchall()
 
@@ -100,26 +97,36 @@ def buy():
         product_id = input("Enter 'f' to finish or enter the product ID: ")
         
         if product_id == "f":
+            result = my_cursor.execute("SELECT SUM (TotalPrice) FROM purchase_invoice")
+            cost = result.fetchone()
+            my_cursor.execute(f"INSERT INTO purchase_invoice (TotalPrice) VALUES ('to be paid: {cost}')")
+            connection.commit()
+            print("\n<<<Your purchase invoice is ready>>>\n")
             break
         elif int(product_id) in PRODUCT_IDs_LIST:
             result = my_cursor.execute(f"SELECT * FROM products WHERE ProductId='{product_id}'")
             product = result.fetchone()
             print(product)
-
+            availabe = int(product[3])
             asked = int(input("How many of this product do you want? "))
 
-            print("\n...Your purchase so far...")
-            my_cursor.execute(f"INSERT INTO purchased_products (ProductId, Name, Price) SELECT ProductId, Name, Price FROM products WHERE ProductId='{product_id}'")
-            my_cursor.execute(f"UPDATE purchased_products SET Count='{asked}' WHERE ProductId='{product_id}'")
-            
-            my_cursor.execute(f"UPDATE products SET Count=Count-{asked} WHERE ProductId='{product_id}'")
-            connection.commit()
+            if asked > availabe or availabe == 0:
+                print ("Not enough of this product in stock.")
 
-            result = my_cursor.execute(f"SELECT * FROM purchased_products")
-            purchased_products = result.fetchall()
-           
-            for purchased_product in purchased_products:
-                print(purchased_product)
+            elif asked <= availabe:
+                print("\n...Your purchase so far...")
+                my_cursor.execute(f"INSERT INTO purchase_invoice (ProductId, Name, Price) SELECT ProductId, Name, Price FROM products WHERE ProductId='{product_id}'")
+                my_cursor.execute(f"UPDATE purchase_invoice SET Count='{asked}' WHERE ProductId='{product_id}'")
+                my_cursor.execute(f"UPDATE purchase_invoice SET TotalPrice=Price*Count WHERE ProductId='{product_id}'")
+
+                my_cursor.execute(f"UPDATE products SET Count=Count-{asked} WHERE ProductId='{product_id}'")
+                connection.commit()
+
+                result = my_cursor.execute(f"SELECT * FROM purchase_invoice")
+                purchased_products = result.fetchall()
+            
+                for purchased_product in purchased_products:
+                    print(purchased_product)    
         
         else:
             print ('There is no product with this ID in stock.')
@@ -142,7 +149,7 @@ while True:
         search()
     elif choice == 6:
         buy()
-    elif choice == 8:
+    elif choice == 7:
         exit(0)
     else:
         print ("Enter a number between 1 and 8.")

@@ -5,7 +5,9 @@ from add_new import *
 from edit import *
 from remove import *
 from search import *
+from buy import *
 
+print ("\n...Welcome to my clothing store application...\n")
 def show_menu():
     print("1. show list")
     print("2. add new")
@@ -13,11 +15,9 @@ def show_menu():
     print("4. remove")
     print("5. search")
     print("6. buy")
-    print("7. qr code")
-    print("8. exit")
+    print("7. exit")
 
 
-# load_database()
 while True:
     show_menu()
     choice = int(input())
@@ -32,11 +32,9 @@ while True:
         remove()
     elif choice == 5:
         search()
-    # elif choice == 6:
-    #     buy()
-    # elif choice == 7:
-    #     qr_code()
-    # elif choice == 8:
-    #     exit(0)
+    elif choice == 6:
+        buy()
+    elif choice == 7:
+        exit(0)
     else:
         print ("Enter a number between 1 and 8.")
