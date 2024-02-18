@@ -3,7 +3,7 @@ import sqlite3
 
 class Database:
     def __init__(self):
-        self.con = sqlite3.connect("todo_list.db")
+        self.con = sqlite3.connect("D:/PyLearn7/Class codes/session 22/todo_list.db")
         self.cursor = self.con.cursor()
 
     def get_tasks(self):

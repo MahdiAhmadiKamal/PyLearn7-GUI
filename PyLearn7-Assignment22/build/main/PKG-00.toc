@@ -1,0 +1,651 @@
+('D:\\PyLearn7\\Class codes\\session 22\\build\\main\\main.pkg',
+ {'BINARY': True,
+  'DATA': True,
+  'EXECUTABLE': True,
+  'EXTENSION': True,
+  'PYMODULE': True,
+  'PYSOURCE': True,
+  'PYZ': False,
+  'SPLASH': True,
+  'SYMLINK': False},
+ [('pyi-contents-directory _internal', '', 'OPTION'),
+  ('PYZ-00.pyz',
+   'D:\\PyLearn7\\Class codes\\session 22\\build\\main\\PYZ-00.pyz',
+   'PYZ'),
+  ('struct',
+   'D:\\PyLearn7\\Class codes\\session 22\\build\\main\\localpycs\\struct.pyc',
+   'PYMODULE'),
+  ('pyimod01_archive',
+   'D:\\PyLearn7\\Class codes\\session '
+   '22\\build\\main\\localpycs\\pyimod01_archive.pyc',
+   'PYMODULE'),
+  ('pyimod02_importers',
+   'D:\\PyLearn7\\Class codes\\session '
+   '22\\build\\main\\localpycs\\pyimod02_importers.pyc',
+   'PYMODULE'),
+  ('pyimod03_ctypes',
+   'D:\\PyLearn7\\Class codes\\session '
+   '22\\build\\main\\localpycs\\pyimod03_ctypes.pyc',
+   'PYMODULE'),
+  ('pyimod04_pywin32',
+   'D:\\PyLearn7\\Class codes\\session '
+   '22\\build\\main\\localpycs\\pyimod04_pywin32.pyc',
+   'PYMODULE'),
+  ('pyiboot01_bootstrap',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
+   'PYSOURCE'),
+  ('pyi_rth_inspect',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_inspect.py',
+   'PYSOURCE'),
+  ('pyi_rth_pyside6',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_pyside6.py',
+   'PYSOURCE'),
+  ('main', 'D:\\PyLearn7\\Class codes\\session 22\\main.py', 'PYSOURCE'),
+  ('python310.dll',
+   'D:\\Program Files\\Python\\Python310\\python310.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qtiff.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\imageformats\\qtiff.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforms\\qminimal.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\platforms\\qminimal.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforms\\qdirect2d.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\platforms\\qdirect2d.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qpdf.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\imageformats\\qpdf.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qgif.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\imageformats\\qgif.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qico.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\imageformats\\qico.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qsvg.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\imageformats\\qsvg.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qwebp.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\imageformats\\qwebp.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\iconengines\\qsvgicon.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\iconengines\\qsvgicon.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qicns.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\imageformats\\qicns.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforms\\qoffscreen.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\platforms\\qoffscreen.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qwbmp.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\imageformats\\qwbmp.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qtga.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\imageformats\\qtga.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qjpeg.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\imageformats\\qjpeg.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforminputcontexts\\qtvirtualkeyboardplugin.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\platforminputcontexts\\qtvirtualkeyboardplugin.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\generic\\qtuiotouchplugin.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\generic\\qtuiotouchplugin.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforms\\qwindows.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\platforms\\qwindows.dll',
+   'BINARY'),
+  ('PySide6\\opengl32sw.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\opengl32sw.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\tls\\qcertonlybackend.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\tls\\qcertonlybackend.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\tls\\qopensslbackend.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\tls\\qopensslbackend.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\networkinformation\\qnetworklistmanager.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\networkinformation\\qnetworklistmanager.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\tls\\qschannelbackend.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\tls\\qschannelbackend.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\styles\\qwindowsvistastyle.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\plugins\\styles\\qwindowsvistastyle.dll',
+   'BINARY'),
+  ('_decimal.pyd',
+   'D:\\Program Files\\Python\\Python310\\DLLs\\_decimal.pyd',
+   'EXTENSION'),
+  ('_hashlib.pyd',
+   'D:\\Program Files\\Python\\Python310\\DLLs\\_hashlib.pyd',
+   'EXTENSION'),
+  ('unicodedata.pyd',
+   'D:\\Program Files\\Python\\Python310\\DLLs\\unicodedata.pyd',
+   'EXTENSION'),
+  ('select.pyd',
+   'D:\\Program Files\\Python\\Python310\\DLLs\\select.pyd',
+   'EXTENSION'),
+  ('_socket.pyd',
+   'D:\\Program Files\\Python\\Python310\\DLLs\\_socket.pyd',
+   'EXTENSION'),
+  ('_lzma.pyd',
+   'D:\\Program Files\\Python\\Python310\\DLLs\\_lzma.pyd',
+   'EXTENSION'),
+  ('_bz2.pyd',
+   'D:\\Program Files\\Python\\Python310\\DLLs\\_bz2.pyd',
+   'EXTENSION'),
+  ('_sqlite3.pyd',
+   'D:\\Program Files\\Python\\Python310\\DLLs\\_sqlite3.pyd',
+   'EXTENSION'),
+  ('PySide6\\QtGui.pyd',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\QtGui.pyd',
+   'EXTENSION'),
+  ('PySide6\\QtNetwork.pyd',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\QtNetwork.pyd',
+   'EXTENSION'),
+  ('shiboken6\\Shiboken.pyd',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\shiboken6\\Shiboken.pyd',
+   'EXTENSION'),
+  ('PySide6\\QtCore.pyd',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\QtCore.pyd',
+   'EXTENSION'),
+  ('PySide6\\QtWidgets.pyd',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\QtWidgets.pyd',
+   'EXTENSION'),
+  ('VCRUNTIME140.dll',
+   'D:\\Program Files\\Python\\Python310\\VCRUNTIME140.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Core.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\Qt6Core.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Gui.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\Qt6Gui.dll',
+   'BINARY'),
+  ('shiboken6\\MSVCP140.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\shiboken6\\MSVCP140.dll',
+   'BINARY'),
+  ('VCRUNTIME140_1.dll',
+   'D:\\Program Files\\Python\\Python310\\VCRUNTIME140_1.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Pdf.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\Qt6Pdf.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Svg.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\Qt6Svg.dll',
+   'BINARY'),
+  ('PySide6\\Qt6VirtualKeyboard.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\Qt6VirtualKeyboard.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Network.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\Qt6Network.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Widgets.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\Qt6Widgets.dll',
+   'BINARY'),
+  ('libcrypto-1_1.dll',
+   'D:\\Program Files\\Python\\Python310\\DLLs\\libcrypto-1_1.dll',
+   'BINARY'),
+  ('sqlite3.dll',
+   'D:\\Program Files\\Python\\Python310\\DLLs\\sqlite3.dll',
+   'BINARY'),
+  ('PySide6\\pyside6.abi3.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\pyside6.abi3.dll',
+   'BINARY'),
+  ('PySide6\\MSVCP140_2.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\MSVCP140_2.dll',
+   'BINARY'),
+  ('shiboken6\\shiboken6.abi3.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\shiboken6\\shiboken6.abi3.dll',
+   'BINARY'),
+  ('PySide6\\VCRUNTIME140.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\VCRUNTIME140.dll',
+   'BINARY'),
+  ('PySide6\\VCRUNTIME140_1.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\VCRUNTIME140_1.dll',
+   'BINARY'),
+  ('PySide6\\MSVCP140.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\MSVCP140.dll',
+   'BINARY'),
+  ('python3.dll',
+   'D:\\Program Files\\Python\\Python310\\python3.dll',
+   'BINARY'),
+  ('shiboken6\\VCRUNTIME140.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\shiboken6\\VCRUNTIME140.dll',
+   'BINARY'),
+  ('shiboken6\\VCRUNTIME140_1.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\shiboken6\\VCRUNTIME140_1.dll',
+   'BINARY'),
+  ('PySide6\\MSVCP140_1.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\MSVCP140_1.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Quick.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\Qt6Quick.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Qml.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\Qt6Qml.dll',
+   'BINARY'),
+  ('PySide6\\Qt6QmlModels.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\Qt6QmlModels.dll',
+   'BINARY'),
+  ('PySide6\\Qt6OpenGL.dll',
+   'D:\\Program '
+   'Files\\Python\\Python310\\Lib\\site-packages\\PySide6\\Qt6OpenGL.dll',
+   'BINARY'),
+  ('base_library.zip',
+   'D:\\PyLearn7\\Class codes\\session 22\\build\\main\\base_library.zip',
+   'DATA'),
+  ('PySide6\\translations\\qt_fi.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_fi.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_fa.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_fa.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_de.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_de.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_it.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_it.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_hu.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_hu.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_zh_CN.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_zh_CN.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_hr.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_hr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_es.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_es.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_he.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_he.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ja.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_ja.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_lv.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_lv.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_he.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_he.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_da.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_da.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_zh_CN.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_zh_CN.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_gl.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_gl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_en.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_en.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_fr.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_fr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ca.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_ca.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_pl.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_pl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_fr.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_fr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_nl.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_nl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ja.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_ja.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_sv.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_sv.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_es.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_es.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_pt_BR.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_pt_BR.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_bg.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_bg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ca.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_ca.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_de.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_de.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ca.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_ca.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_pt_PT.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_pt_PT.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_es.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_es.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_de.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_de.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ja.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_ja.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_fa.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_fa.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_tr.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_tr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_pt_BR.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_pt_BR.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_sl.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_sl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_pt_BR.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_pt_BR.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_sk.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_sk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_zh_TW.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_zh_TW.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_uk.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_uk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_zh_TW.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_zh_TW.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_gd.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_gd.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_cs.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_cs.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_pl.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_pl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_da.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_da.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ru.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_ru.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_pl.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_pl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_hu.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_hu.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_uk.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_uk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ko.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_ko.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_nn.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_nn.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_fr.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_fr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ru.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_ru.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_sk.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_sk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ar.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_ar.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_sl.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_sl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_sk.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_sk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ar.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_ar.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_da.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_da.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_gl.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_gl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_cs.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_cs.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ru.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_ru.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_it.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_it.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_zh_TW.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_zh_TW.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_hu.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_hu.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_en.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_en.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_lv.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_lv.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_lt.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_lt.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_tr.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_tr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_zh_CN.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_zh_CN.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ko.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_ko.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_uk.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_uk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_hr.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_hr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_en.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_en.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_cs.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_cs.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_nl.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_nl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_fi.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_fi.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_bg.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_bg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ko.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_ko.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_nn.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_nn.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_it.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_it.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_nl.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_nl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_hr.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_help_hr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_gd.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_gd.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_nn.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qt_nn.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_bg.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_bg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_tr.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_tr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ar.qm',
+   'D:\\Program '
+   'Files\\Python\\Python310\\lib\\site-packages\\PySide6\\translations\\qtbase_ar.qm',
+   'DATA')],
+ 'python310.dll',
+ False,
+ False,
+ False,
+ [],
+ None,
+ None,
+ None)
