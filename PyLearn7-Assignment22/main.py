@@ -3,6 +3,7 @@ from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from main_window import Ui_MainWindow
 from database import Database
+from functools import partial
 
 
 class MainWindow(QMainWindow):
@@ -13,7 +14,7 @@ class MainWindow(QMainWindow):
 
         self.db = Database()
         self.read_from_database()
-        self.db.task_done()     ###
+        # self.new_task()    #A
         self.ui.btn_new_task.clicked.connect(self.new_task)
 
     def new_task(self):
@@ -46,8 +47,24 @@ class MainWindow(QMainWindow):
             self.ui.layout_tasks.addWidget(new_label, i, 1)
             self.ui.layout_tasks.addWidget(new_delet_btn, i, 2)
             # self.ui.layout_tasks.addWidget(new_label_2, i ,2)
-            new_checkbox.setChecked(int(tasks[i][3]))      ###
+            # new_checkbox.clicked.connect(self.db.task_done)   #A
+            # new_checkbox.setChecked(int(tasks[i][3]))      #A
+            if tasks[i][3]==1:
+                new_checkbox.setChecked(True)
 
+            new_checkbox.toggled.connect(partial(self.check_task, tasks[i][0], new_checkbox))
+
+    def check_task(self, id, checkbox, x):
+        if checkbox.isChecked():
+            situation = 1
+        else:
+            situation = 0
+
+        self.db.task_done(id, situation)
+        # for i in range(len(tasks)):
+        # new_checkbox.clicked.connect(self.db.task_done(tasks[i][0]))   #A
+        # new_checkbox.setChecked(int(tasks[i][3]))      #A
+        
 
 
 
