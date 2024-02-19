@@ -25,4 +25,6 @@ class Database:
         query = f"DELETE FROM ..."
 
     def task_done(self):
-        query = f"UPDATE ... SET is_done = 1 WHERE..."
+        query = f"UPDATE tasks SET is_done = 1 WHERE id='{'2'}'"    ###
+        self.cursor.execute(query)
+        self.con.commit()

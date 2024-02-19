@@ -13,7 +13,7 @@ class MainWindow(QMainWindow):
 
         self.db = Database()
         self.read_from_database()
-
+        self.db.task_done()     ###
         self.ui.btn_new_task.clicked.connect(self.new_task)
 
     def new_task(self):
@@ -31,7 +31,7 @@ class MainWindow(QMainWindow):
 
     def read_from_database(self):
         tasks = self.db.get_tasks()
-
+        print(tasks)
         for i in range(len(tasks)):
             new_checkbox = QCheckBox()
             new_label = QLabel()
@@ -46,6 +46,11 @@ class MainWindow(QMainWindow):
             self.ui.layout_tasks.addWidget(new_label, i, 1)
             self.ui.layout_tasks.addWidget(new_delet_btn, i, 2)
             # self.ui.layout_tasks.addWidget(new_label_2, i ,2)
+            new_checkbox.setChecked(int(tasks[i][3]))      ###
+
+
+
+
 
 
 if __name__ == "__main__":
