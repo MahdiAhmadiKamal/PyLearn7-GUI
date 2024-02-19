@@ -14,7 +14,6 @@ class MainWindow(QMainWindow):
 
         self.db = Database()
         self.read_from_database()
-        # self.new_task()    #A
         self.ui.btn_new_task.clicked.connect(self.new_task)
 
     def new_task(self):
@@ -31,6 +30,9 @@ class MainWindow(QMainWindow):
             msg_box.exec()
 
     def read_from_database(self):
+        global new_checkbox
+        global new_label
+        global new_delet_btn
         tasks = self.db.get_tasks()
         print(tasks)
         for i in range(len(tasks)):
@@ -52,7 +54,8 @@ class MainWindow(QMainWindow):
             if tasks[i][3]==1:
                 new_checkbox.setChecked(True)
 
-            new_checkbox.toggled.connect(partial(self.check_task, tasks[i][0], new_checkbox))
+            new_checkbox.toggled.connect(partial(self.check_task, tasks[i][0], new_checkbox))       #A
+            new_delet_btn.clicked.connect(partial(self.remove_task, tasks[i][0], [new_checkbox,new_label,new_delet_btn]))    #B
 
     def check_task(self, id, checkbox, x):
         if checkbox.isChecked():
@@ -64,6 +67,16 @@ class MainWindow(QMainWindow):
         # for i in range(len(tasks)):
         # new_checkbox.clicked.connect(self.db.task_done(tasks[i][0]))   #A
         # new_checkbox.setChecked(int(tasks[i][3]))      #A
+
+    def remove_task(self, id, row):
+        feedback=self.db.remove_a_task(id)
+        if feedback==True:
+            for widget in row:
+                widget.deleteLater()
+        else:
+            msg_box = QMessageBox()
+            msg_box.setText("مشکلی رخ داده است.")
+            msg_box.exec()
         
 
 

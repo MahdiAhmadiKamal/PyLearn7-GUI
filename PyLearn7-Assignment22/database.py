@@ -21,10 +21,16 @@ class Database:
         except:
             return False
         
-    def remove_task(self):
-        query = f"DELETE FROM ..."
+    def remove_a_task(self, id):
+        try:
+            query = f"DELETE FROM tasks WHERE id='{id}'"        #B
+            self.cursor.execute(query)
+            self.con.commit()
+            return True
+        except:
+            return False
 
     def task_done(self, id, situation):
-        query = f"UPDATE tasks SET is_done='{situation}' WHERE id={id} "    #A
+        query = f"UPDATE tasks SET is_done='{situation}' WHERE id='{id}' "    #A
         self.cursor.execute(query)
         self.con.commit()
