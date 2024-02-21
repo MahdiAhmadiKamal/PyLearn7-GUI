@@ -14,6 +14,7 @@ class MainWindow(QMainWindow):
 
         self.db = Database()
         self.read_from_database()
+
         self.ui.btn_new_task.clicked.connect(self.new_task)
 
     def new_task(self):
@@ -30,11 +31,12 @@ class MainWindow(QMainWindow):
             msg_box.exec()
 
     def read_from_database(self):
-        global new_checkbox
-        global new_label
-        global new_delet_btn
+        
         tasks = self.db.get_tasks()
+        # tasks = self.sort_tasks(tasks)
         print(tasks)
+        # print(done_tasks)
+        self.ui.layout_tasks.removeWidget()
         for i in range(len(tasks)):
             new_checkbox = QCheckBox()
             new_label = QLabel()
@@ -49,11 +51,10 @@ class MainWindow(QMainWindow):
             self.ui.layout_tasks.addWidget(new_label, i, 1)
             self.ui.layout_tasks.addWidget(new_delet_btn, i, 2)
             # self.ui.layout_tasks.addWidget(new_label_2, i ,2)
-            # new_checkbox.clicked.connect(self.db.task_done)   #A
-            # new_checkbox.setChecked(int(tasks[i][3]))      #A
+            
             if tasks[i][3]==1:
                 new_checkbox.setChecked(True)
-
+                
             new_checkbox.toggled.connect(partial(self.check_task, tasks[i][0], new_checkbox))       #A
             new_delet_btn.clicked.connect(partial(self.remove_task, tasks[i][0], [new_checkbox,new_label,new_delet_btn]))    #B
 
@@ -62,11 +63,10 @@ class MainWindow(QMainWindow):
             situation = 1
         else:
             situation = 0
-
+        
         self.db.task_done(id, situation)
-        # for i in range(len(tasks)):
-        # new_checkbox.clicked.connect(self.db.task_done(tasks[i][0]))   #A
-        # new_checkbox.setChecked(int(tasks[i][3]))      #A
+        # self.read_from_database()
+        
 
     def remove_task(self, id, row):
         feedback=self.db.remove_a_task(id)
@@ -77,10 +77,21 @@ class MainWindow(QMainWindow):
             msg_box = QMessageBox()
             msg_box.setText("مشکلی رخ داده است.")
             msg_box.exec()
+
+    # def sort_tasks(self, tasks):
+    #     global done_tasks
+    #     done_tasks = []
+    #     for task in tasks:
+    #         if task[3]==1:
+    #             tasks.remove(task)
+    #             done_tasks.append(task)
         
+        
+    #     sorted_tasks = tasks + done_tasks
+    #     return sorted_tasks
 
 
-
+        
 
 
 if __name__ == "__main__":

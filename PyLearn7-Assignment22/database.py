@@ -3,7 +3,7 @@ import sqlite3
 
 class Database:
     def __init__(self):
-        self.con = sqlite3.connect("D:/PyLearn7/Class codes/session 22/todo_list.db")
+        self.con = sqlite3.connect("todo_list.db")
         self.cursor = self.con.cursor()
 
     def get_tasks(self):
@@ -31,6 +31,6 @@ class Database:
             return False
 
     def task_done(self, id, situation):
-        query = f"UPDATE tasks SET is_done='{situation}' WHERE id='{id}' "    #A
+        query = f"UPDATE tasks SET is_done='{situation}' WHERE id='{id}'"    #A
         self.cursor.execute(query)
         self.con.commit()
