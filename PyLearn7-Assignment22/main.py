@@ -5,7 +5,6 @@ from main_window import Ui_MainWindow
 from database import Database
 from functools import partial
 
-widgets_list=[]
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -33,13 +32,13 @@ class MainWindow(QMainWindow):
             msg_box.exec()
 
     def read_from_database(self):
+        
         for i in reversed(range(self.ui.layout_tasks.count())): 
             self.ui.layout_tasks.itemAt(i).widget().setParent(None)
 
         tasks = self.db.get_tasks()
         tasks = self.sort_tasks(tasks)
-        print(tasks)
-        # print(done_tasks)
+     
 
         for i in range(len(tasks)):
             new_checkbox = QCheckBox()
@@ -57,9 +56,6 @@ class MainWindow(QMainWindow):
             self.ui.layout_tasks.addWidget(new_delet_btn, i, 2)
             # self.ui.layout_tasks.addWidget(new_label_2, i ,2)
 
-            # widgets_list.append(new_checkbox)
-            widgets_list.append(new_label)
-            # widgets_list.append(new_delet_btn)
             if tasks[i][3]==1:
                 new_checkbox.setChecked(True)
                 
@@ -74,7 +70,7 @@ class MainWindow(QMainWindow):
             situation = 0
         
         self.db.task_done(id, situation)
-        # self.read_from_database()
+        self.read_from_database()
         
 
     def remove_task(self, id, row):
@@ -88,16 +84,12 @@ class MainWindow(QMainWindow):
             msg_box.exec()
 
     def sort_tasks(self, tasks):
-        global done_tasks
-        done_tasks = []
         for task in tasks:
             if task[3]==1:
-                tasks.remove(task)
-                done_tasks.append(task)
+                tasks.append(tasks.pop(tasks.index(task)))
+        print(tasks)
         
-        
-        sorted_tasks = tasks + done_tasks
-        return sorted_tasks
+        return tasks
 
 
         
