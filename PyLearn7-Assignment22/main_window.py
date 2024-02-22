@@ -15,7 +15,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QGridLayout,
+from PySide6.QtWidgets import (QApplication, QCheckBox, QDateTimeEdit, QGridLayout,
     QHBoxLayout, QLineEdit, QMainWindow, QMenuBar,
     QPushButton, QSizePolicy, QStatusBar, QTextEdit,
     QVBoxLayout, QWidget)
@@ -58,10 +58,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.comboBox = QComboBox(self.centralwidget)
-        self.comboBox.setObjectName(u"comboBox")
+        self.box_date_time = QDateTimeEdit(self.centralwidget)
+        self.box_date_time.setObjectName(u"box_date_time")
 
-        self.horizontalLayout_2.addWidget(self.comboBox)
+        self.horizontalLayout_2.addWidget(self.box_date_time)
 
         self.checkbox_important = QCheckBox(self.centralwidget)
         self.checkbox_important.setObjectName(u"checkbox_important")
