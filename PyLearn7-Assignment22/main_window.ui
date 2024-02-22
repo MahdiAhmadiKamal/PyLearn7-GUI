@@ -54,7 +54,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QDateTimeEdit" name="box_date_time"/>
+       <widget class="QDateTimeEdit" name="bx_date_time"/>
       </item>
       <item>
        <widget class="QCheckBox" name="checkbox_important">

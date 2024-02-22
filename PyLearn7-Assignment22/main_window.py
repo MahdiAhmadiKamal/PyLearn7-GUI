@@ -58,10 +58,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_2 = QHBoxLayout()
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
-        self.box_date_time = QDateTimeEdit(self.centralwidget)
-        self.box_date_time.setObjectName(u"box_date_time")
+        self.bx_date_time = QDateTimeEdit(self.centralwidget)
+        self.bx_date_time.setObjectName(u"bx_date_time")
 
-        self.horizontalLayout_2.addWidget(self.box_date_time)
+        self.horizontalLayout_2.addWidget(self.bx_date_time)
 
         self.checkbox_important = QCheckBox(self.centralwidget)
         self.checkbox_important.setObjectName(u"checkbox_important")
