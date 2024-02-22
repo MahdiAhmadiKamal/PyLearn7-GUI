@@ -16,16 +16,26 @@ class MainWindow(QMainWindow):
         self.read_from_database()
 
         self.ui.btn_new_task.clicked.connect(self.new_task)
-
+        
     def new_task(self):
-
+        
         new_title = self.ui.tbx_new_task_title.text()
         new_description = self.ui.tbx_new_task_description.toPlainText()
-        feedback = self.db.add_new_task(new_title, new_description)
+
+        if self.ui.checkbox_important.isChecked():
+            new_priority = 1
+            self.ui.checkbox_important.setChecked(False)
+        else:
+            new_priority = 0
+
+        feedback = self.db.add_new_task(new_title, new_description, new_priority)
         if feedback == True:
+            
             self.read_from_database()
+
             self.ui.tbx_new_task_title.setText("")
             self.ui.tbx_new_task_description.setText("")
+            
         else:
             msg_box = QMessageBox()
             msg_box.setText("مشکلی رخ داده است.")
@@ -38,7 +48,7 @@ class MainWindow(QMainWindow):
 
         tasks = self.db.get_tasks()
         tasks = self.sort_tasks(tasks)
-     
+          
 
         for i in range(len(tasks)):
             new_checkbox = QCheckBox()
@@ -58,10 +68,11 @@ class MainWindow(QMainWindow):
 
             if tasks[i][3]==1:
                 new_checkbox.setChecked(True)
-                
+
+            
             new_checkbox.toggled.connect(partial(self.check_task, tasks[i][0], new_checkbox))       #A
             new_delet_btn.clicked.connect(partial(self.remove_task, tasks[i][0], [new_checkbox,new_label,new_delet_btn]))    #B
-        
+            
 
     def check_task(self, id, checkbox, x):
         if checkbox.isChecked():
@@ -72,6 +83,17 @@ class MainWindow(QMainWindow):
         self.db.task_done(id, situation)
         self.read_from_database()
         
+
+    # def priority(self, id, x):
+    #     if self.ui.btn_new_task.isChecked():
+    #         situation = 1
+    #         # print("1")
+    #     else:
+    #         situation = 0
+    #         # print("0")
+
+    #     self.db.task_priority(id, situation)
+    #     self.read_from_database()
 
     def remove_task(self, id, row):
         feedback=self.db.remove_a_task(id)

@@ -12,9 +12,9 @@ class Database:
         tasks = result.fetchall()
         return tasks
     
-    def add_new_task(self, new_title, new_description):
+    def add_new_task(self, new_title, new_description, new_priority):
         try:
-            query = f"INSERT INTO tasks(title, description) VALUES('{new_title}', '{new_description}')"
+            query = f"INSERT INTO tasks(title, description, priority) VALUES('{new_title}', '{new_description}', '{new_priority}')"
             self.cursor.execute(query)
             self.con.commit()
             return True
@@ -32,5 +32,10 @@ class Database:
 
     def task_done(self, id, situation):
         query = f"UPDATE tasks SET is_done='{situation}' WHERE id='{id}'"    #A
+        self.cursor.execute(query)
+        self.con.commit()
+
+    def task_priority(self, id, situation):
+        query = f"UPDATE tasks SET priority='{situation}' WHERE id='{id}'"
         self.cursor.execute(query)
         self.con.commit()

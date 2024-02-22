@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>440</width>
-    <height>491</height>
+    <width>478</width>
+    <height>519</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,14 +25,41 @@
       </item>
       <item>
        <widget class="QPushButton" name="btn_new_task">
+        <property name="minimumSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <family>Calibri</family>
           <pointsize>24</pointsize>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
          <string>+</string>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>30</width>
+          <height>30</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QComboBox" name="comboBox"/>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkbox_important">
+        <property name="text">
+         <string>important</string>
         </property>
        </widget>
       </item>
@@ -48,7 +75,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>440</width>
+     <width>478</width>
      <height>22</height>
     </rect>
    </property>

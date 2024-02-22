@@ -15,15 +15,16 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QHBoxLayout, QLineEdit,
-    QMainWindow, QMenuBar, QPushButton, QSizePolicy,
-    QStatusBar, QTextEdit, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QCheckBox, QComboBox, QGridLayout,
+    QHBoxLayout, QLineEdit, QMainWindow, QMenuBar,
+    QPushButton, QSizePolicy, QStatusBar, QTextEdit,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(440, 491)
+        MainWindow.resize(478, 519)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -42,15 +43,33 @@ class Ui_MainWindow(object):
 
         self.btn_new_task = QPushButton(self.centralwidget)
         self.btn_new_task.setObjectName(u"btn_new_task")
+        self.btn_new_task.setMinimumSize(QSize(30, 30))
         font = QFont()
         font.setFamilies([u"Calibri"])
         font.setPointSize(24)
+        font.setBold(False)
         self.btn_new_task.setFont(font)
+        self.btn_new_task.setIconSize(QSize(30, 30))
 
         self.horizontalLayout.addWidget(self.btn_new_task)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.comboBox = QComboBox(self.centralwidget)
+        self.comboBox.setObjectName(u"comboBox")
+
+        self.horizontalLayout_2.addWidget(self.comboBox)
+
+        self.checkbox_important = QCheckBox(self.centralwidget)
+        self.checkbox_important.setObjectName(u"checkbox_important")
+
+        self.horizontalLayout_2.addWidget(self.checkbox_important)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
 
         self.tbx_new_task_description = QTextEdit(self.centralwidget)
         self.tbx_new_task_description.setObjectName(u"tbx_new_task_description")
@@ -60,7 +79,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 440, 22))
+        self.menubar.setGeometry(QRect(0, 0, 478, 22))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -74,5 +93,6 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.btn_new_task.setText(QCoreApplication.translate("MainWindow", u"+", None))
+        self.checkbox_important.setText(QCoreApplication.translate("MainWindow", u"important", None))
     # retranslateUi
 
