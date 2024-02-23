@@ -23,7 +23,7 @@ class Database:
         
     def remove_a_task(self, id):
         try:
-            query = f"DELETE FROM tasks WHERE id='{id}'"        #B
+            query = f"DELETE FROM tasks WHERE id='{id}'"    
             self.cursor.execute(query)
             self.con.commit()
             return True
@@ -31,7 +31,7 @@ class Database:
             return False
 
     def task_done(self, id, situation):
-        query = f"UPDATE tasks SET is_done='{situation}' WHERE id='{id}'"    #A
+        query = f"UPDATE tasks SET is_done='{situation}' WHERE id='{id}'"  
         self.cursor.execute(query)
         self.con.commit()
 

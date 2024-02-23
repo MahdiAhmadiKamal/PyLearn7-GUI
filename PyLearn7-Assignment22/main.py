@@ -64,13 +64,9 @@ class MainWindow(QMainWindow):
             else:
                 new_label.setStyleSheet("height:16px;border:none;color:#b4042a;font-family:'Lucida Bright'; font-size:18pt;")     
             
-            # new_label_2 = QLabel()
-            # new_label_2.setText(tasks[i][2])
-
             self.ui.layout_tasks.addWidget(new_checkbox, i, 1)
             self.ui.layout_tasks.addWidget(new_label, i, 0)
             self.ui.layout_tasks.addWidget(new_delet_btn, i, 2)
-            # self.ui.layout_tasks.addWidget(new_label_2, i ,2)
 
             if tasks[i][3]==1:
                 new_checkbox.setChecked(True)
@@ -79,7 +75,7 @@ class MainWindow(QMainWindow):
                 else:
                      new_label.setStyleSheet("height:16px;border:none;color:#b4042a;font-family:'Lucida Bright'; font-size:18pt; text-decoration:line-through")
 
-            new_checkbox.toggled.connect(partial(self.check_task, tasks[i][0], new_checkbox))       #A
+            new_checkbox.toggled.connect(partial(self.check_task, tasks[i][0], new_checkbox))     
             new_delet_btn.clicked.connect(partial(self.remove_task, tasks[i][0], [new_checkbox,new_label,new_delet_btn]))    #B
             new_label.mousePressEvent=partial(self.show_task_details, tasks[i])
 
@@ -92,7 +88,6 @@ class MainWindow(QMainWindow):
         self.db.task_done(id, situation)
         self.read_from_database()
         
-
     def remove_task(self, id, row):
         feedback=self.db.remove_a_task(id)
         if feedback==True:
