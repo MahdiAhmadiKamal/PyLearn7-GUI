@@ -2,11 +2,11 @@
 
 **Todopy list** is a task manager and to-do list app. In this application, you can distinguish important tasks from other ones. By clicking on any task you can see its date, time and description.
 
-<img src="pics/screenshot 12.png" width="739.3" height="492.9">
+<img src="pics\s12.png" width="739.3" height="492.9">
 
 ---
 
-<img src="pics/screenshot 45.png" width="730" height="468.6">
+<img src="pics\s45.png" width="730" height="468.6">
 
 ---
 ## Python
