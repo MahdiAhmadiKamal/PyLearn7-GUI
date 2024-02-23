@@ -11,7 +11,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-
+        
         self.db = Database()
         self.read_from_database()
 
@@ -19,7 +19,6 @@ class MainWindow(QMainWindow):
 
         
     def new_task(self):
-        
         new_title = self.ui.tbx_new_task_title.text()
         new_description = self.ui.tbx_new_task_description.toPlainText()
         new_date_time = self.ui.bx_date_time.text()
@@ -34,7 +33,7 @@ class MainWindow(QMainWindow):
         if feedback == True:
             
             self.read_from_database()
-
+            
             self.ui.tbx_new_task_title.setText("")
             self.ui.tbx_new_task_description.setText("")     
         else:
@@ -55,22 +54,31 @@ class MainWindow(QMainWindow):
             new_checkbox = QCheckBox()
             new_label = QLabel()
             new_delet_btn = QPushButton()
-            
+            new_delet_btn.setStyleSheet("background-color: #464646;")
             
             new_label.setText(tasks[i][1])
+            
             new_delet_btn.setText("❌")
+            if tasks[i][4]==0:
+                new_label.setStyleSheet("height:16px;border:none;color:#313131;font-family:'Lucida Bright'; font-size:18pt;")
+            else:
+                new_label.setStyleSheet("height:16px;border:none;color:#b4042a;font-family:'Lucida Bright'; font-size:18pt;")     
+            
             # new_label_2 = QLabel()
             # new_label_2.setText(tasks[i][2])
 
-            self.ui.layout_tasks.addWidget(new_checkbox, i, 0)
-            self.ui.layout_tasks.addWidget(new_label, i, 1)
+            self.ui.layout_tasks.addWidget(new_checkbox, i, 1)
+            self.ui.layout_tasks.addWidget(new_label, i, 0)
             self.ui.layout_tasks.addWidget(new_delet_btn, i, 2)
             # self.ui.layout_tasks.addWidget(new_label_2, i ,2)
 
             if tasks[i][3]==1:
                 new_checkbox.setChecked(True)
+                if tasks[i][4]==0:
+                    new_label.setStyleSheet("height:16px;border:none;color:#313131;font-family:'Lucida Bright'; font-size:18pt; text-decoration:line-through")
+                else:
+                     new_label.setStyleSheet("height:16px;border:none;color:#b4042a;font-family:'Lucida Bright'; font-size:18pt; text-decoration:line-through")
 
-            
             new_checkbox.toggled.connect(partial(self.check_task, tasks[i][0], new_checkbox))       #A
             new_delet_btn.clicked.connect(partial(self.remove_task, tasks[i][0], [new_checkbox,new_label,new_delet_btn]))    #B
             new_label.mousePressEvent=partial(self.show_task_details, tasks[i])

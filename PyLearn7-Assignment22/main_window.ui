@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>478</width>
-    <height>519</height>
+    <width>448</width>
+    <height>475</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(189, 255, 66)</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -21,7 +24,24 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLineEdit" name="tbx_new_task_title"/>
+       <widget class="QLineEdit" name="tbx_new_task_title">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Lucida Bright</family>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:rgb(49, 49, 49);
+color: rgb(255, 255, 255)</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btn_new_task">
@@ -33,10 +53,17 @@
         </property>
         <property name="font">
          <font>
-          <family>Calibri</family>
-          <pointsize>24</pointsize>
-          <bold>false</bold>
+          <family>Arial Black</family>
+          <pointsize>28</pointsize>
+          <bold>true</bold>
          </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>ArrowCursor</cursorShape>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:rgb(180, 49, 127);
+color: rgb(255, 255, 255)</string>
         </property>
         <property name="text">
          <string>+</string>
@@ -54,19 +81,83 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
-       <widget class="QDateTimeEdit" name="bx_date_time"/>
+       <widget class="QDateTimeEdit" name="bx_date_time">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Cambria</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color:rgb(180, 49, 127);
+color: rgb(255, 255, 255)</string>
+        </property>
+        <property name="date">
+         <date>
+          <year>2024</year>
+          <month>1</month>
+          <day>1</day>
+         </date>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QCheckBox" name="checkbox_important">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Cambria</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
         <property name="text">
          <string>important</string>
+        </property>
+        <property name="tristate">
+         <bool>false</bool>
         </property>
        </widget>
       </item>
      </layout>
     </item>
     <item>
-     <widget class="QTextEdit" name="tbx_new_task_description"/>
+     <widget class="QTextEdit" name="tbx_new_task_description">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>90</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Lucida Bright</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color:rgb(252, 165, 255)</string>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -75,7 +166,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>478</width>
+     <width>448</width>
      <height>22</height>
     </rect>
    </property>
