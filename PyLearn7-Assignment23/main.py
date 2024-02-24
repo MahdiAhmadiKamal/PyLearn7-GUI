@@ -18,6 +18,7 @@ class MainWindow(QMainWindow):
                 new_cell = QLineEdit()
                 if puzzle.board[i][j] != None:
                     new_cell.setText(str(puzzle.board[i][j]))
+                    new_cell.setReadOnly(True)
                 self.ui.grid_layout.addWidget(new_cell, i, j)
 
 if __name__ == "__main__":
