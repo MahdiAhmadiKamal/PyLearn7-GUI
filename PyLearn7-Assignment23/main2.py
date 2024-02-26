@@ -8,13 +8,17 @@ from PySide6 import QtWidgets, QtCore
 from main_window import Ui_MainWindow
 
 
+flag = 0
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setStyleSheet("background-color: #a8bec9")
-        self.ui.btn_dark_light_mode.clicked.connect(self.dark_light_mode)
+        self.ui.btn_dark_light_mode.setStyleSheet("background-color: #192a32; font-size:11pt; color:'#ffffff'")
+        self.ui.btn_dark_light_mode.clicked.connect(partial(self.dark_light_mode))
         self.ui.menu_new.triggered.connect(self.new_game)
         self.ui.menu_open_file.triggered.connect(self.open_file)
         self.line_edits = [[None for i in range(9)] for j in range(9)]
@@ -44,11 +48,21 @@ class MainWindow(QMainWindow):
         cell.setStyleSheet("background-color: #ffffff; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")
         
     def dark_light_mode(self):
-        self.setStyleSheet("background-color: #192a32")
-        for cell in cells:
-            cell.setStyleSheet("background-color: #25404d; height:50px;font-family:'Segoe UI Black'; font-size:20pt; color:'#f2b137'")
-
-        
+        global flag
+        if flag %2 == 0:
+            self.ui.btn_dark_light_mode.setStyleSheet("background-color: #ffffff; font-size:11pt; color:'black'")
+            self.ui.btn_dark_light_mode.setText("Light")
+            self.setStyleSheet("background-color: #192a32")
+            for cell in cells:
+                cell.setStyleSheet("background-color: #25404d; height:50px;font-family:'Segoe UI Black'; font-size:20pt; color:'#f2b137'")
+            flag += 1
+        elif flag %2 != 0:
+            self.ui.btn_dark_light_mode.setStyleSheet("background-color: #192a32; font-size:11pt; color:'#ffffff'")
+            self.ui.btn_dark_light_mode.setText("Dark")
+            self.setStyleSheet("background-color: #a8bec9")
+            for cell in cells:
+                cell.setStyleSheet("background-color: #ffffff; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")
+            flag += 1
 
     def open_file(self):
         file_path = QFileDialog.getOpenFileName(self, "Open file...")[0]
