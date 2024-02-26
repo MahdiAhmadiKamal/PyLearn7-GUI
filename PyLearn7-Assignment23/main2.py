@@ -13,18 +13,22 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.setStyleSheet("background-color: #a8bec9")
+        self.ui.btn_dark_light_mode.clicked.connect(self.dark_light_mode)
         self.ui.menu_new.triggered.connect(self.new_game)
         self.ui.menu_open_file.triggered.connect(self.open_file)
         self.line_edits = [[None for i in range(9)] for j in range(9)]
         self.new_game()
        
     def new_game(self):
+        global cells
+        cells = []
         puzzle = Sudoku(3, seed=random.randint(1, 1000)).difficulty(0.5)
         for i in range(9):
             for j in range(9):
                 new_cell = QLineEdit()
                 self.appearance(new_cell)
-
+                
                 if puzzle.board[i][j] != None:
                     new_cell.setText(str(puzzle.board[i][j]))
                     new_cell.setReadOnly(True)
@@ -32,12 +36,18 @@ class MainWindow(QMainWindow):
                 
                 new_cell.textChanged.connect(partial(self.validation, i, j))
                 self.line_edits[i][j] = new_cell
+                cells.append(new_cell)
 
     def appearance(self, cell):
         cell.setAlignment(QtCore.Qt.AlignCenter)
-        cell.setFont(QFont("Segoe UI Black", 10))
+        # cell.setFont(QFont("Segoe UI Black", 10))
+        cell.setStyleSheet("background-color: #ffffff; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")
         
-        
+    def dark_light_mode(self):
+        self.setStyleSheet("background-color: #192a32")
+        for cell in cells:
+            cell.setStyleSheet("background-color: #25404d; height:50px;font-family:'Segoe UI Black'; font-size:20pt; color:'#f2b137'")
+
         
 
     def open_file(self):

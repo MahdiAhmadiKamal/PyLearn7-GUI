@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>487</width>
-    <height>507</height>
+    <width>501</width>
+    <height>541</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -25,13 +25,26 @@
     </property>
     <layout class="QGridLayout" name="grid_layout"/>
    </widget>
+   <widget class="QPushButton" name="btn_dark_light_mode">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>460</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Dark</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>487</width>
+     <width>501</width>
      <height>22</height>
     </rect>
    </property>
