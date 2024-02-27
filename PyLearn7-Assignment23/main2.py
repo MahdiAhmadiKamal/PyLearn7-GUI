@@ -1,5 +1,6 @@
 import sys
 import random
+import collections
 from functools import partial
 from sudoku import Sudoku
 from PySide6.QtWidgets import *
@@ -26,12 +27,16 @@ class MainWindow(QMainWindow):
        
     def new_game(self):
         global cells
+        global new_cell
+        global puzzle_board
         cells = []
         puzzle = Sudoku(3, seed=random.randint(1, 1000)).difficulty(0.5)
+        
         for i in range(9):
             for j in range(9):
+            
                 new_cell = QLineEdit()
-                self.appearance(new_cell)
+                self.appearance(new_cell, "correct")
                 
                 if puzzle.board[i][j] != None:
                     new_cell.setText(str(puzzle.board[i][j]))
@@ -41,12 +46,17 @@ class MainWindow(QMainWindow):
                 new_cell.textChanged.connect(partial(self.validation, i, j))
                 self.line_edits[i][j] = new_cell
                 cells.append(new_cell)
+            puzzle_board = puzzle.board[i]
+            print(puzzle_board)
 
-    def appearance(self, cell):
+    def appearance(self, cell, status):
         cell.setAlignment(QtCore.Qt.AlignCenter)
         # cell.setFont(QFont("Segoe UI Black", 10))
-        cell.setStyleSheet("background-color: #ffffff; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")
-        
+        if status == "correct":
+            cell.setStyleSheet("background-color: #ffffff; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")
+        elif status == "incorrect":
+            cell.setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")
+    
     def dark_light_mode(self):
         global flag
         if flag %2 == 0:
@@ -86,48 +96,52 @@ class MainWindow(QMainWindow):
                 new_cell.textChanged.connect(partial(self.validation, i, j))
                 self.line_edits[i][j] = new_cell
 
-    def check(self):
-        # for i in range(0,2):
-        #     if i==0:
-        #         for j in [1, 2, 3, 4, 5, 6, 7, 8]:
-        #             number1 = self.line_edits[0][i].text()
-        #             number2 = self.line_edits[0][j].text()
-        #             if number1 == number2:
-        #                 print("❌")
-        #                 return False
-        #     if i==1:   
-        #         for j in [0, 2, 3, 4, 5, 6, 7, 8]:
-        #             number3 = self.line_edits[0][i].text()
-        #             number4 = self.line_edits[0][j].text()
-        #             if number3 == number4:
-        #                 print("❌❌")
-        #                 return False
+    def check(self, i, j):
+        new=[[None for i in range(9)] for j in range(9)]
         array =[[None for i in range(9)] for j in range(9)]
         for i in range(0, 9):
             for j in range(0, 9):  
                 array[i][j] = self.line_edits[i][j].text()
+               
                 if array[i][j] == '':
                     array[i][j] = None
-                else:
+                if array[i][j] != None:
+                    array[i][j] = int(array[i][j].split()[0])
+                
                     array.append((array[i][j])) 
-            new_row = [item for item in array[i] if item is not None]
-            print(new_row)
-            print(len(new_row))     
-            print(len(set(new_row)))
-            if len(new_row) != len(set(new_row)):
-                print ("❌")
-            # print(array[i])
-
-        print('* * * * * * * * *')
+            print(array[i])
+            
+            row_nums = [item for item in array[i] if item is not None]
+            row_nums_unduplicated = list(dict.fromkeys(row_nums))
+            n = [item for item, count in collections.Counter(row_nums).items() if count > 1]
+            
+            # print(row_nums)
+            # print(row_nums_unduplicated)
+            # print(n)
+            # print(len(row_nums))     
+            # print(len(set(row_nums)))
         
+            if len(row_nums) != len(row_nums_unduplicated):
+               
+                # print(array[i])
+                j = array[i].index(n[0])
+                # print(j)
+                red_cell = QLineEdit()
+                self.appearance(red_cell, "incorrect")
+                self.ui.grid_layout.addWidget(red_cell, i, j)
+                red_cell.setText(str(array[i][j]))
+                print ("❌")
+            
 
+        # print('* * * * * * * * *')
+        
 
     def validation(self, i, j, text):
         # text = self.line_edits[i][j].text()
         if text not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
             self.line_edits[i][j].setText("")
 
-        self.check()
+        self.check(i, j)
         
 
 
