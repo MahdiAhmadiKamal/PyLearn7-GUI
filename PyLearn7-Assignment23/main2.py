@@ -87,21 +87,48 @@ class MainWindow(QMainWindow):
                 self.line_edits[i][j] = new_cell
 
     def check(self):
+        # for i in range(0,2):
+        #     if i==0:
+        #         for j in [1, 2, 3, 4, 5, 6, 7, 8]:
+        #             number1 = self.line_edits[0][i].text()
+        #             number2 = self.line_edits[0][j].text()
+        #             if number1 == number2:
+        #                 print("❌")
+        #                 return False
+        #     if i==1:   
+        #         for j in [0, 2, 3, 4, 5, 6, 7, 8]:
+        #             number3 = self.line_edits[0][i].text()
+        #             number4 = self.line_edits[0][j].text()
+        #             if number3 == number4:
+        #                 print("❌❌")
+        #                 return False
+        array =[[None for i in range(9)] for j in range(9)]
         for i in range(0, 9):
-            for j in range(0, 9):
-                number1 = self.line_edits[i][0].text()
-                number2 = self.line_edits[i][j].text()
-                if number1 == number2:
-                    print("❌")
-                    return False
+            for j in range(0, 9):  
+                array[i][j] = self.line_edits[i][j].text()
+                if array[i][j] == '':
+                    array[i][j] = None
+                else:
+                    array.append((array[i][j])) 
+            new_row = [item for item in array[i] if item is not None]
+            print(new_row)
+            print(len(new_row))     
+            print(len(set(new_row)))
+            if len(new_row) != len(set(new_row)):
+                print ("❌")
+            # print(array[i])
+
+        print('* * * * * * * * *')
         
+
+
     def validation(self, i, j, text):
         # text = self.line_edits[i][j].text()
         if text not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
             self.line_edits[i][j].setText("")
 
-        if self.check() == True:
-            msg_box = ...
+        self.check()
+        
 
 
 if __name__ == "__main__":
