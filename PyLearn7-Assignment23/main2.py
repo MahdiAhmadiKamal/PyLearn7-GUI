@@ -31,6 +31,7 @@ class MainWindow(QMainWindow):
         global puzzle_board
         cells = []
         puzzle = Sudoku(3, seed=random.randint(1, 1000)).difficulty(0.5)
+        puzzle_board = [[None for i in range(9)] for j in range(9)]
         
         for i in range(9):
             for j in range(9):
@@ -39,6 +40,7 @@ class MainWindow(QMainWindow):
                 self.appearance(new_cell, "correct")
                 
                 if puzzle.board[i][j] != None:
+                    puzzle_board[i][j]=puzzle.board[i][j]
                     new_cell.setText(str(puzzle.board[i][j]))
                     new_cell.setReadOnly(True)
                 self.ui.grid_layout.addWidget(new_cell, i, j)
@@ -46,8 +48,9 @@ class MainWindow(QMainWindow):
                 new_cell.textChanged.connect(partial(self.validation, i, j))
                 self.line_edits[i][j] = new_cell
                 cells.append(new_cell)
-            puzzle_board = puzzle.board[i]
-            print(puzzle_board)
+            # puzzle_board = puzzle.board[i]
+            print(puzzle_board[i])
+        print('* * * * * * * * *')
 
     def appearance(self, cell, status):
         cell.setAlignment(QtCore.Qt.AlignCenter)
@@ -97,6 +100,7 @@ class MainWindow(QMainWindow):
                 self.line_edits[i][j] = new_cell
 
     def check(self, i, j):
+        global array
         new=[[None for i in range(9)] for j in range(9)]
         array =[[None for i in range(9)] for j in range(9)]
         for i in range(0, 9):
@@ -120,20 +124,34 @@ class MainWindow(QMainWindow):
             # print(n)
             # print(len(row_nums))     
             # print(len(set(row_nums)))
-        
-            if len(row_nums) != len(row_nums_unduplicated):
-               
-                # print(array[i])
-                j = array[i].index(n[0])
-                # print(j)
-                red_cell = QLineEdit()
-                self.appearance(red_cell, "incorrect")
-                self.ui.grid_layout.addWidget(red_cell, i, j)
-                red_cell.setText(str(array[i][j]))
-                print ("❌")
-            
+            for j in range(0, 9):
+                if array[i][j] != puzzle_board[i][j]:
+                    print(array[i][j])
+                    print(row_nums)
+                    print(row_nums_unduplicated)
+                    # for j in range(0, 9):
+                    if array[i].count(array[i][j]) > 1:
+                        red_cell = QLineEdit()
+                        self.appearance(red_cell, "incorrect")
+                        self.ui.grid_layout.addWidget(red_cell, i, j)
+                        red_cell.setText(str(array[i][j]))
+                    # if len(row_nums) != len(row_nums_unduplicated):
+                            
+                    #         # print(j)
+                    #         red_cell = QLineEdit()
+                    #         self.appearance(red_cell, "incorrect")
+                    #         self.ui.grid_layout.addWidget(red_cell, i, j)
+                    #         red_cell.setText(str(array[i][j]))
+                    #         # print ("❌")
+                            
+                    #         break
+                    # print(array[i])
+                    # j = array[i].index(n[0])
+                        
+            puzzle_board[i] = array[i]
 
-        # print('* * * * * * * * *')
+
+            
         
 
     def validation(self, i, j, text):
