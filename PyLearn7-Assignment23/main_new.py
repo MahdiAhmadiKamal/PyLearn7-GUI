@@ -49,8 +49,8 @@ class MainWindow(QMainWindow):
                 self.line_edits[i][j] = new_cell
                 cells.append(new_cell)
             # puzzle_board = puzzle.board[i]
-            print(puzzle_board[i])
-        print('* * * * * * * * *')
+            # print(puzzle_board[i])
+        # print('* * * * * * * * *')
 
     def appearance(self, cell, status):
         cell.setAlignment(QtCore.Qt.AlignCenter)
@@ -99,96 +99,26 @@ class MainWindow(QMainWindow):
                 new_cell.textChanged.connect(partial(self.validation, i, j))
                 self.line_edits[i][j] = new_cell
 
-    def check(self, i, j):
-        global array
-        global array_tr
-        array =[[None for i in range(9)] for j in range(9)]
-        # array_tr = []
-        array_tr = [[None for i in range(9)] for j in range(9)]
-        puzzle_board_tr = [[None for i in range(9)] for j in range(9)]
-        
-        for i in range(0, 9):
-            for j in range(0, 9):  
-                array[i][j] = self.line_edits[i][j].text()
-                
-                if array[i][j] == '':
-                    array[i][j] = None
-                    
-                if array[i][j] != None:
-                    array[i][j] = int(array[i][j].split()[0])
-                    
-                    array.append((array[i][j]))
-                
-            # print(array[i])
+    def check(self, i, j, text):
+        #row check
+        # print(text)
+        # print("* * * * * *")
+        for i1 in range(0, 9):
+            for j1 in range(0, 9):
+                num = self.line_edits[i1][j1].text()
+                # print(num)
+                if num == text and i == i1 and j != j1:
+                    self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")
+
+        #column check
+        for i2 in range(0, 9):
+            for j2 in range(0, 9):
+                num = self.line_edits[i2][j2].text()
+                if num == text and i != i2 and j == j2:
+                    self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")   
+
+
             
-            
-            row_nums = [item for item in array[i] if item is not None]
-            row_nums_unduplicated = list(dict.fromkeys(row_nums))
-            n = [item for item, count in collections.Counter(row_nums).items() if count > 1]
-            
-            # print(row_nums)
-            # print(row_nums_unduplicated)
-            # print(n)
-            # print(len(row_nums))     
-            # print(len(set(row_nums)))
-
-        for i in range(0, 9):
-            for j in range(0, 9):
-                puzzle_board_tr[i][j] = puzzle_board[j][i]
-            # print(puzzle_board_tr[i])
-
-        for i in range(0, 9):
-            for j in range(0, 9):
-                array_tr[i][j] = array[j][i]
-            # print(array_tr[i])
-
-
-        for i in range(0, 9):
-            for j in range(0, 9):
-                
-                
-                if array[i][j] != puzzle_board[i][j]:
-                    # puzzle_board[i][j] = array[i][j]
-                    # print(array[i][j])
-                    # print(row_nums)
-                    # print(row_nums_unduplicated)
-                    # for j in range(0, 9):
-                    if array[i].count(array[i][j]) > 1:
-                        print("hor")
-                        red_cell = QLineEdit()
-                        self.appearance(red_cell, "incorrect")
-                        self.ui.grid_layout.addWidget(red_cell, i, j)
-                        red_cell.setText(str(array[i][j]))
-                        
-                        # break
-                    elif array_tr[i].count(array_tr[i][j]) > 1:
-                        
-                        print("ver")
-                        red_cell = QLineEdit()
-                        self.appearance(red_cell, "incorrect")
-                        self.ui.grid_layout.addWidget(red_cell, i, j)
-                        red_cell.setText(str(array_tr[i][j]))
-                        # break
-                    # if len(row_nums) != len(row_nums_unduplicated):
-                            
-                    #         # print(j)
-                    #         red_cell = QLineEdit()
-                    #         self.appearance(red_cell, "incorrect")
-                    #         self.ui.grid_layout.addWidget(red_cell, i, j)
-                    #         red_cell.setText(str(array[i][j]))
-                    #         # print ("❌")
-                            
-                    #         break
-                    # print(array[i])
-                    # j = array[i].index(n[0])
-                        
-            # print(array_tr[i])
-            
-
-        
-           
-
-  
         
 
     def validation(self, i, j, text):
@@ -196,7 +126,7 @@ class MainWindow(QMainWindow):
         if text not in ["1", "2", "3", "4", "5", "6", "7", "8", "9"]:
             self.line_edits[i][j].setText("")
 
-        self.check(i, j)
+        self.check(i, j, text)
         
 
 
