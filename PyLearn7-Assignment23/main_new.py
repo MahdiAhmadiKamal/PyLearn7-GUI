@@ -101,12 +101,12 @@ class MainWindow(QMainWindow):
 
     def check(self, i, j, text):
         #row check
-        # print(text)
-        # print("* * * * * *")
+        print(text)
+        print("* * * * * *")
         for i1 in range(0, 9):
             for j1 in range(0, 9):
                 num = self.line_edits[i1][j1].text()
-                # print(num)
+                print(num)
                 if num == text and i == i1 and j != j1:
                     self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")
 
@@ -117,9 +117,87 @@ class MainWindow(QMainWindow):
                 if num == text and i != i2 and j == j2:
                     self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")   
 
+        #square check 
+        #(top-left)
+        if 0 <= i < 3 and 0 <= j < 3 :
+            for i3 in range(0, 3):
+                for j3 in range(0, 3):
+                    num = self.line_edits[i3][j3].text()
+                    if num == text and i != i3 and j != j3:
+                        self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")   
 
-            
-        
+        #(top-center)
+        if 0 <= i < 3 and 3 <= j < 6 :
+            for i4 in range(0, 3):
+                for j4 in range(3, 6):
+                    num = self.line_edits[i4][j4].text()
+                    if num == text and i != i4 and j != j4:
+                        self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")   
+
+        #(top-right)
+        if 0 <= i < 3 and 6 <= j < 9 :
+            for i5 in range(0, 3):
+                for j5 in range(6, 9):
+                    num = self.line_edits[i5][j5].text()
+                    if num == text and i != i5 and j != j5:
+                        self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")   
+
+        #(middle-left)
+        if 3 <= i < 6 and 0 <= j < 3 :
+            for i6 in range(3, 6):
+                for j6 in range(0, 3):
+                    num = self.line_edits[i6][j6].text()
+                    if num == text and i != i6 and j != j6:
+                        self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")   
+
+        #(middle-center)
+        if 3 <= i < 6 and 3 <= j < 6 :
+            for i7 in range(3, 6):
+                for j7 in range(3, 6):
+                    num = self.line_edits[i7][j7].text()
+                    if num == text and i != i7 and j != j7:
+                        self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")   
+
+        #(middle-right)
+        if 3 <= i < 6 and 6 <= j < 9 :
+            for i8 in range(3, 6):
+                for j8 in range(6, 9):
+                    num = self.line_edits[i8][j8].text()
+                    if num == text and i != i8 and j != j8:
+                        self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")        
+
+        #(bottom-left)
+        if 6 <= i < 9 and 0 <= j < 3 :
+            for i9 in range(6, 9):
+                for j9 in range(0, 3):
+                    num = self.line_edits[i9][j9].text()
+                    if num == text and i != i9 and j != j9:
+                        self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")   
+
+        #(bottom-center)
+        if 6 <= i < 9 and 3 <= j < 6 :
+            for i10 in range(6, 9):
+                for j10 in range(3, 6):
+                    num = self.line_edits[i10][j10].text()
+                    if num == text and i != i10 and j != j10:
+                        self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")   
+
+        #(bottom-right)
+        if 6 <= i < 9 and 6 <= j < 9 :
+            for i11 in range(6, 9):
+                for j11 in range(6, 9):
+                    num = self.line_edits[i11][j11].text()
+                    if num == text and i != i11 and j != j11:
+                        self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")                         
+
+
+
+
+
+
+
+
+
 
     def validation(self, i, j, text):
         # text = self.line_edits[i][j].text()
