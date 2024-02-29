@@ -55,6 +55,9 @@
     <addaction name="separator"/>
     <addaction name="menu_new"/>
     <addaction name="menu_open_file"/>
+    <addaction name="menu_puzzle_answer"/>
+    <addaction name="menu_about"/>
+    <addaction name="menu_exit"/>
    </widget>
    <addaction name="menuGame"/>
   </widget>
@@ -67,6 +70,21 @@
   <action name="menu_open_file">
    <property name="text">
     <string>Open File...</string>
+   </property>
+  </action>
+  <action name="menu_puzzle_answer">
+   <property name="text">
+    <string>Puzzle Answer</string>
+   </property>
+  </action>
+  <action name="menu_about">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="menu_exit">
+   <property name="text">
+    <string>Exit</string>
    </property>
   </action>
  </widget>

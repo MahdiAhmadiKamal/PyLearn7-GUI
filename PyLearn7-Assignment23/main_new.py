@@ -22,15 +22,25 @@ class MainWindow(QMainWindow):
         self.ui.btn_dark_light_mode.clicked.connect(partial(self.dark_light_mode))
         self.ui.menu_new.triggered.connect(self.new_game)
         self.ui.menu_open_file.triggered.connect(self.open_file)
+        self.ui.menu_puzzle_answer.triggered.connect(self.puzzle_answer)
+        self.ui.menu_about.triggered.connect(self.about)
+        self.ui.menu_exit.triggered.connect(self.exit)
         self.line_edits = [[None for i in range(9)] for j in range(9)]
         self.new_game()
-       
+    
     def new_game(self):
+        
+        self.puzzle = Sudoku(3, seed=random.randint(1, 1000)).difficulty(0.5)
+        self.show_game()
+        solve = self.puzzle.solve()
+        print(solve.board)
+
+    def show_game(self):
         global cells
         global new_cell
         global puzzle_board
         cells = []
-        puzzle = Sudoku(3, seed=random.randint(1, 1000)).difficulty(0.5)
+        
         puzzle_board = [[None for i in range(9)] for j in range(9)]
         
         for i in range(9):
@@ -39,18 +49,19 @@ class MainWindow(QMainWindow):
                 new_cell = QLineEdit()
                 self.appearance(new_cell, "correct")
                 
-                if puzzle.board[i][j] != None:
-                    puzzle_board[i][j]=puzzle.board[i][j]
-                    new_cell.setText(str(puzzle.board[i][j]))
+                if self.puzzle.board[i][j] != None:
+                    puzzle_board[i][j]=self.puzzle.board[i][j]
+                    new_cell.setText(str(self.puzzle.board[i][j]))
                     new_cell.setReadOnly(True)
                 self.ui.grid_layout.addWidget(new_cell, i, j)
                 
                 new_cell.textChanged.connect(partial(self.validation, i, j))
                 self.line_edits[i][j] = new_cell
                 cells.append(new_cell)
-            # puzzle_board = puzzle.board[i]
+           
+            puzzle_board[i] = self.puzzle.board[i]
             # print(puzzle_board[i])
-        # print('* * * * * * * * *')
+            # print('* * * * * * * * *')
 
     def appearance(self, cell, status):
         cell.setAlignment(QtCore.Qt.AlignCenter)
@@ -78,38 +89,40 @@ class MainWindow(QMainWindow):
             flag += 1
 
     def open_file(self):
-        file_path = QFileDialog.getOpenFileName(self, "Open file...")[0]
-        f = open(file_path, "r")
-        big_text = f.read()
-        rows = big_text.split("\n")
-        puzzle_board = [[None for i in range(9)] for j in range(9)]
-        for i in range(len(rows)):
-            cells = rows[i].split(" ")
-            for j in range(len(cells)):
-                puzzle_board[i][j] = int(cells[j])
+        try:
+            file_path = QFileDialog.getOpenFileName(self, "Open file...")[0]
+            f = open(file_path, "r")
+            big_text = f.read()
+            rows = big_text.split("\n")
+            puzzle_board = [[None for i in range(9)] for j in range(9)]
+            for i in range(len(rows)):
+                cells = rows[i].split(" ")
+                for j in range(len(cells)):
+                    puzzle_board[i][j] = int(cells[j])
 
-        for i in range(9):
-            for j in range(9):
-                new_cell = QLineEdit()
-                self.appearance(new_cell)
-                if puzzle_board[i][j] != 0:
-                    new_cell.setText(str(puzzle_board[i][j]))
-                    new_cell.setReadOnly(True)
-                self.ui.grid_layout.addWidget(new_cell, i, j)
-                new_cell.textChanged.connect(partial(self.validation, i, j))
-                self.line_edits[i][j] = new_cell
+            for i in range(9):
+                for j in range(9):
+                    new_cell = QLineEdit()
+                    self.appearance(new_cell, "correct")
+                    if puzzle_board[i][j] != 0:
+                        new_cell.setText(str(puzzle_board[i][j]))
+                        new_cell.setReadOnly(True)
+                    self.ui.grid_layout.addWidget(new_cell, i, j)
+                    new_cell.textChanged.connect(partial(self.validation, i, j))
+                    self.line_edits[i][j] = new_cell
+        except:
+            msg = QMessageBox()
+            msg.setText('An error occurred!')
+            msg.exec()
 
     def check(self, i, j, text):
         #row check
-        print(text)
-        print("* * * * * *")
         for i1 in range(0, 9):
             for j1 in range(0, 9):
                 num = self.line_edits[i1][j1].text()
-                print(num)
                 if num == text and i == i1 and j != j1:
                     self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")
-
+        
         #column check
         for i2 in range(0, 9):
             for j2 in range(0, 9):
@@ -117,7 +130,7 @@ class MainWindow(QMainWindow):
                 if num == text and i != i2 and j == j2:
                     self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")   
 
-        #square check 
+        #3x3 square check 
         #(top-left)
         if 0 <= i < 3 and 0 <= j < 3 :
             for i3 in range(0, 3):
@@ -190,14 +203,28 @@ class MainWindow(QMainWindow):
                     if num == text and i != i11 and j != j11:
                         self.line_edits[i][j].setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")                         
 
+    def win_check(self):
+        # print("check")
+        play_board = [[None for i in range(9)] for j in range(9)]
+        answer_board = [[None for i in range(9)] for j in range(9)]
+        solve = self.puzzle.solve()
+        for ii in range(9):
+            for jj in range(9):
+                play_board[ii][jj] = self.line_edits[ii][jj].text()
+                answer_board[ii][jj] = str(solve.board[ii][jj])
 
+        if play_board == answer_board:
+            print("*** You Win! ***")
+            msg = QMessageBox()
+            msg.setText('*** You Win! ***')
+            msg.exec()
+                  
 
-
-
-
-
-
-
+    def puzzle_answer(self):
+        solve = self.puzzle.solve()
+        print(solve.board)
+        self.puzzle = Sudoku(3, 3, board=solve.board)
+        self.show_game()
 
     def validation(self, i, j, text):
         # text = self.line_edits[i][j].text()
@@ -205,6 +232,19 @@ class MainWindow(QMainWindow):
             self.line_edits[i][j].setText("")
 
         self.check(i, j, text)
+        # puzzle_board[i][j]= text
+        # print(puzzle_board)
+        self.win_check()
+
+    def about(self):
+        f = open("about.txt", "r")
+        r = f.read()
+        about_box = QMessageBox(text=r)
+        about_box.setWindowTitle("about Sudoku")
+        about_box.exec()
+
+    def exit(self):
+        ...
         
 
 

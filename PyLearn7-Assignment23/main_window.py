@@ -29,6 +29,12 @@ class Ui_MainWindow(object):
         self.menu_new.setObjectName(u"menu_new")
         self.menu_open_file = QAction(MainWindow)
         self.menu_open_file.setObjectName(u"menu_open_file")
+        self.menu_puzzle_answer = QAction(MainWindow)
+        self.menu_puzzle_answer.setObjectName(u"menu_puzzle_answer")
+        self.menu_about = QAction(MainWindow)
+        self.menu_about.setObjectName(u"menu_about")
+        self.menu_exit = QAction(MainWindow)
+        self.menu_exit.setObjectName(u"menu_exit")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayoutWidget = QWidget(self.centralwidget)
@@ -55,6 +61,9 @@ class Ui_MainWindow(object):
         self.menuGame.addSeparator()
         self.menuGame.addAction(self.menu_new)
         self.menuGame.addAction(self.menu_open_file)
+        self.menuGame.addAction(self.menu_puzzle_answer)
+        self.menuGame.addAction(self.menu_about)
+        self.menuGame.addAction(self.menu_exit)
 
         self.retranslateUi(MainWindow)
 
@@ -65,6 +74,9 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Sudoku Game", None))
         self.menu_new.setText(QCoreApplication.translate("MainWindow", u"New...", None))
         self.menu_open_file.setText(QCoreApplication.translate("MainWindow", u"Open File...", None))
+        self.menu_puzzle_answer.setText(QCoreApplication.translate("MainWindow", u"Puzzle Answer", None))
+        self.menu_about.setText(QCoreApplication.translate("MainWindow", u"About", None))
+        self.menu_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
         self.btn_dark_light_mode.setText(QCoreApplication.translate("MainWindow", u"Dark", None))
         self.menuGame.setTitle(QCoreApplication.translate("MainWindow", u"Game", None))
     # retranslateUi
