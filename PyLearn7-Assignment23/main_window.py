@@ -25,6 +25,13 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(501, 541)
+        sizePolicy = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
+        MainWindow.setMinimumSize(QSize(501, 541))
+        MainWindow.setMaximumSize(QSize(501, 541))
         self.menu_new = QAction(MainWindow)
         self.menu_new.setObjectName(u"menu_new")
         self.menu_open_file = QAction(MainWindow)

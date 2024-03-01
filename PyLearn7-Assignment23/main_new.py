@@ -1,6 +1,5 @@
 import sys
 import random
-import collections
 from functools import partial
 from sudoku import Sudoku
 from PySide6.QtWidgets import *
@@ -33,7 +32,7 @@ class MainWindow(QMainWindow):
         self.puzzle = Sudoku(3, seed=random.randint(1, 1000)).difficulty(0.5)
         self.show_game()
         solve = self.puzzle.solve()
-        print(solve.board)
+        # print(solve.board)
 
     def show_game(self):
         global cells
@@ -41,16 +40,16 @@ class MainWindow(QMainWindow):
         global puzzle_board
         cells = []
         
-        puzzle_board = [[None for i in range(9)] for j in range(9)]
+        # puzzle_board = [[None for i in range(9)] for j in range(9)]
         
         for i in range(9):
             for j in range(9):
             
                 new_cell = QLineEdit()
-                self.appearance(new_cell, "correct")
+                self.appearance(new_cell, "correct_light")
                 
                 if self.puzzle.board[i][j] != None:
-                    puzzle_board[i][j]=self.puzzle.board[i][j]
+                    # puzzle_board[i][j]=self.puzzle.board[i][j]
                     new_cell.setText(str(self.puzzle.board[i][j]))
                     new_cell.setReadOnly(True)
                 self.ui.grid_layout.addWidget(new_cell, i, j)
@@ -59,18 +58,18 @@ class MainWindow(QMainWindow):
                 self.line_edits[i][j] = new_cell
                 cells.append(new_cell)
            
-            puzzle_board[i] = self.puzzle.board[i]
+            # puzzle_board[i] = self.puzzle.board[i]
             # print(puzzle_board[i])
-            # print('* * * * * * * * *')
 
     def appearance(self, cell, status):
         cell.setAlignment(QtCore.Qt.AlignCenter)
-        # cell.setFont(QFont("Segoe UI Black", 10))
-        if status == "correct":
+        if status == "correct_light":
             cell.setStyleSheet("background-color: #ffffff; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")
-        elif status == "incorrect":
+        elif status == "incorrect_light":
             cell.setStyleSheet("background-color: #ff909b; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")
-    
+        elif status == "correct_dark":
+            cell.setStyleSheet("background-color: #25404d; height:50px;font-family:'Segoe UI Black'; font-size:20pt; color:'#f2b137'")
+        
     def dark_light_mode(self):
         global flag
         if flag %2 == 0:
@@ -78,14 +77,14 @@ class MainWindow(QMainWindow):
             self.ui.btn_dark_light_mode.setText("Light")
             self.setStyleSheet("background-color: #192a32")
             for cell in cells:
-                cell.setStyleSheet("background-color: #25404d; height:50px;font-family:'Segoe UI Black'; font-size:20pt; color:'#f2b137'")
+                self.appearance(cell, "correct_dark")
             flag += 1
         elif flag %2 != 0:
             self.ui.btn_dark_light_mode.setStyleSheet("background-color: #192a32; font-size:11pt; color:'#ffffff'")
             self.ui.btn_dark_light_mode.setText("Dark")
             self.setStyleSheet("background-color: #a8bec9")
             for cell in cells:
-                cell.setStyleSheet("background-color: #ffffff; height:50px;font-family:'Segoe UI Black'; font-size:20pt;")
+                self.appearance(cell, "correct_light")
             flag += 1
 
     def open_file(self):
@@ -103,7 +102,7 @@ class MainWindow(QMainWindow):
             for i in range(9):
                 for j in range(9):
                     new_cell = QLineEdit()
-                    self.appearance(new_cell, "correct")
+                    self.appearance(new_cell, "correct_light")
                     if puzzle_board[i][j] != 0:
                         new_cell.setText(str(puzzle_board[i][j]))
                         new_cell.setReadOnly(True)
@@ -244,9 +243,8 @@ class MainWindow(QMainWindow):
         about_box.exec()
 
     def exit(self):
-        ...
+        exit(0)
         
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
