@@ -8,7 +8,7 @@ from heart import Heart
 
 class Game(arcade.Window):
     def __init__(self):
-        super().__init__(width=600, height=700, title="Star Wars Game")
+        super().__init__(width=600, height=700, title="Star Wars 2.0")
         arcade.set_background_color(arcade.color.DARK_BLUE)
         self.background = arcade.load_texture(":resources:images/backgrounds/stars.png") 
         self.me = Spacecraft(self.width)

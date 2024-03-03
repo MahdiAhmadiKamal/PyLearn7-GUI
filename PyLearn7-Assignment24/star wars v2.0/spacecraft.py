@@ -4,7 +4,7 @@ from bullet import Bullet
 
 class Spacecraft(arcade.Sprite):
     def __init__(self, w):
-        super().__init__("D:\PyLearn7\Assignments\PyLearn7-Game\PyLearn7-Assignment14\pictures\my_spacecraft.png")
+        super().__init__("pictures\my_spacecraft.png")
         self.center_x = w//2
         self.center_y = 80
         self.change_x = 0
