@@ -1,5 +1,8 @@
-from threading import Thread
+from time import time
 from moviepy import editor
+
+
+start_time = time()
 
 def convert(input_address,output_address):
     video = editor.VideoFileClip(input_address)
@@ -12,16 +15,9 @@ movies = [['input/video1.mp4', 'output/audio1.mp3'],
           ['input/video4.mp4', 'output/audio4.mp3'],
           ['input/video5.mp4', 'output/audio5.mp3']]
 
-threads = []
+for movie in movies:
+    convert(movie[0], movie[1] )
 
-for input_address, output_address in movies:
-    new_thread = Thread(target=convert, args=[input_address,output_address])
-    threads.append(new_thread)
-    
-for thread in threads:
-    thread.start()
+end_time = time()
 
-for thread in threads:
-    thread.join()
-
-
+print(end_time - start_time)
