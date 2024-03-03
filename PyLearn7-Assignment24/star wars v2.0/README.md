@@ -5,7 +5,7 @@
 ## Game Rules
 At the beginning of the game you have three lives. Each time invaders enter your planet, one life will be lost. If this happens three times, the game will be over. Remember that you also lose if you hit the attackers' spaceships. You can shoot at the attackers to defend yourself and destroy them. The more invaders you destroy, the more scores you get.
 
-<img src="pictures/game_screen.png" width="609.3" height="500">
+<img src="pictures/game_screen.png" width="500" height="609.3">
 
 ---
 ## Key Functions
