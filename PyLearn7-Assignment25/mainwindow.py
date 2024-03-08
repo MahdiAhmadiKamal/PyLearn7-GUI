@@ -31,6 +31,23 @@ class Ui_MainWindow(object):
         self.tabWidget.setGeometry(QRect(50, 20, 551, 461))
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
+        self.btn_germany_worldclock = QPushButton(self.tab)
+        self.btn_germany_worldclock.setObjectName(u"btn_germany_worldclock")
+        self.btn_germany_worldclock.setGeometry(QRect(230, 250, 75, 24))
+        self.btn_usa_worldclock = QPushButton(self.tab)
+        self.btn_usa_worldclock.setObjectName(u"btn_usa_worldclock")
+        self.btn_usa_worldclock.setGeometry(QRect(320, 250, 75, 24))
+        self.btn_iran_worldclock = QPushButton(self.tab)
+        self.btn_iran_worldclock.setObjectName(u"btn_iran_worldclock")
+        self.btn_iran_worldclock.setGeometry(QRect(130, 250, 75, 24))
+        self.lbl_worldclock = QLabel(self.tab)
+        self.lbl_worldclock.setObjectName(u"lbl_worldclock")
+        self.lbl_worldclock.setGeometry(QRect(150, 90, 231, 71))
+        font = QFont()
+        font.setFamilies([u"Seven Segment"])
+        font.setPointSize(50)
+        self.lbl_worldclock.setFont(font)
+        self.lbl_worldclock.setAlignment(Qt.AlignCenter)
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QWidget()
         self.tab_2.setObjectName(u"tab_2")
@@ -40,9 +57,6 @@ class Ui_MainWindow(object):
         self.lbl_stopwatch = QLabel(self.tab_3)
         self.lbl_stopwatch.setObjectName(u"lbl_stopwatch")
         self.lbl_stopwatch.setGeometry(QRect(160, 90, 231, 71))
-        font = QFont()
-        font.setFamilies([u"Seven Segment"])
-        font.setPointSize(50)
         self.lbl_stopwatch.setFont(font)
         self.lbl_stopwatch.setAlignment(Qt.AlignCenter)
         self.btn_start_stopwatch = QPushButton(self.tab_3)
@@ -96,7 +110,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -104,6 +118,10 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        self.btn_germany_worldclock.setText(QCoreApplication.translate("MainWindow", u"Germany", None))
+        self.btn_usa_worldclock.setText(QCoreApplication.translate("MainWindow", u"USA", None))
+        self.btn_iran_worldclock.setText(QCoreApplication.translate("MainWindow", u"Iran", None))
+        self.lbl_worldclock.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"World Clock", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Alarm", None))
         self.lbl_stopwatch.setText(QCoreApplication.translate("MainWindow", u"0", None))
