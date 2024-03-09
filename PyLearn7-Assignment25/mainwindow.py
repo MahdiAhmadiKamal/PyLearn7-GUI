@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QLabel, QLineEdit, QMainWindow,
-    QMenuBar, QPushButton, QSizePolicy, QStatusBar,
-    QTabWidget, QWidget)
+from PySide6.QtWidgets import (QApplication, QGridLayout, QLabel, QLineEdit,
+    QMainWindow, QMenuBar, QPushButton, QSizePolicy,
+    QStatusBar, QTabWidget, QTimeEdit, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -51,6 +51,25 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.tab, "")
         self.tab_2 = QWidget()
         self.tab_2.setObjectName(u"tab_2")
+        self.btn_add_alarm = QPushButton(self.tab_2)
+        self.btn_add_alarm.setObjectName(u"btn_add_alarm")
+        self.btn_add_alarm.setGeometry(QRect(240, 230, 75, 24))
+        self.tbx_new_alarm_name = QLineEdit(self.tab_2)
+        self.tbx_new_alarm_name.setObjectName(u"tbx_new_alarm_name")
+        self.tbx_new_alarm_name.setGeometry(QRect(210, 180, 141, 31))
+        self.bx_time = QTimeEdit(self.tab_2)
+        self.bx_time.setObjectName(u"bx_time")
+        self.bx_time.setGeometry(QRect(180, 120, 221, 51))
+        font1 = QFont()
+        font1.setFamilies([u"Seven Segment"])
+        font1.setPointSize(25)
+        self.bx_time.setFont(font1)
+        self.layoutWidget = QWidget(self.tab_2)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.layoutWidget.setGeometry(QRect(20, 20, 511, 61))
+        self.layout_alarms = QGridLayout(self.layoutWidget)
+        self.layout_alarms.setObjectName(u"layout_alarms")
+        self.layout_alarms.setContentsMargins(0, 0, 0, 0)
         self.tabWidget.addTab(self.tab_2, "")
         self.tab_3 = QWidget()
         self.tab_3.setObjectName(u"tab_3")
@@ -74,20 +93,20 @@ class Ui_MainWindow(object):
         self.tbx_hour_timer = QLineEdit(self.tab_4)
         self.tbx_hour_timer.setObjectName(u"tbx_hour_timer")
         self.tbx_hour_timer.setGeometry(QRect(170, 90, 61, 71))
-        font1 = QFont()
-        font1.setFamilies([u"Seven Segment"])
-        font1.setPointSize(30)
-        self.tbx_hour_timer.setFont(font1)
+        font2 = QFont()
+        font2.setFamilies([u"Seven Segment"])
+        font2.setPointSize(30)
+        self.tbx_hour_timer.setFont(font2)
         self.tbx_hour_timer.setAlignment(Qt.AlignCenter)
         self.tbx_minute_timer = QLineEdit(self.tab_4)
         self.tbx_minute_timer.setObjectName(u"tbx_minute_timer")
         self.tbx_minute_timer.setGeometry(QRect(240, 90, 61, 71))
-        self.tbx_minute_timer.setFont(font1)
+        self.tbx_minute_timer.setFont(font2)
         self.tbx_minute_timer.setAlignment(Qt.AlignCenter)
         self.tbx_second_timer = QLineEdit(self.tab_4)
         self.tbx_second_timer.setObjectName(u"tbx_second_timer")
         self.tbx_second_timer.setGeometry(QRect(310, 90, 61, 71))
-        self.tbx_second_timer.setFont(font1)
+        self.tbx_second_timer.setFont(font2)
         self.tbx_second_timer.setAlignment(Qt.AlignCenter)
         self.btn_reset_timer = QPushButton(self.tab_4)
         self.btn_reset_timer.setObjectName(u"btn_reset_timer")
@@ -110,7 +129,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -123,6 +142,7 @@ class Ui_MainWindow(object):
         self.btn_iran_worldclock.setText(QCoreApplication.translate("MainWindow", u"Iran", None))
         self.lbl_worldclock.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"World Clock", None))
+        self.btn_add_alarm.setText(QCoreApplication.translate("MainWindow", u"Add Alarm", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Alarm", None))
         self.lbl_stopwatch.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.btn_start_stopwatch.setText(QCoreApplication.translate("MainWindow", u"Start", None))
