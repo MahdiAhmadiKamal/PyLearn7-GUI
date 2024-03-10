@@ -29,7 +29,18 @@ class Database:
             return True
         except:
             return False
+        
+    def edit_an_alarm(self, id, edited_time):
 
+        try:
+            query = f"UPDATE alarms_table SET time='{edited_time}' WHERE id='{id}'"     
+            result = self.cursor.execute(query)
+            # result.fetchone()
+            self.con.commit()
+            return True
+        except:
+            return False
+        
     def alarm_done(self, id, situation):
         query = f"UPDATE alarms_table SET is_done='{situation}' WHERE id='{id}'"  
         self.cursor.execute(query)

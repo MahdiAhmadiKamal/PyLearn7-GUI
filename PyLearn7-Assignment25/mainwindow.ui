@@ -99,8 +99,8 @@
      <widget class="QPushButton" name="btn_add_alarm">
       <property name="geometry">
        <rect>
-        <x>240</x>
-        <y>230</y>
+        <x>230</x>
+        <y>310</y>
         <width>75</width>
         <height>24</height>
        </rect>
@@ -112,18 +112,24 @@
      <widget class="QLineEdit" name="tbx_new_alarm_name">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>180</y>
+        <x>200</x>
+        <y>260</y>
         <width>141</width>
         <height>31</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <bold>false</bold>
+       </font>
       </property>
      </widget>
      <widget class="QTimeEdit" name="bx_time">
       <property name="geometry">
        <rect>
-        <x>180</x>
-        <y>120</y>
+        <x>170</x>
+        <y>200</y>
         <width>221</width>
         <height>51</height>
        </rect>
@@ -134,8 +140,11 @@
         <pointsize>25</pointsize>
        </font>
       </property>
+      <property name="currentSection">
+       <enum>QDateTimeEdit::HourSection</enum>
+      </property>
       <property name="displayFormat">
-       <string>hh:mm:ss</string>
+       <string>hh:mm:ss AP</string>
       </property>
      </widget>
      <widget class="QWidget" name="layoutWidget">

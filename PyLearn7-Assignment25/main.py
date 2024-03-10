@@ -4,7 +4,8 @@ import pytz
 from datetime import datetime
 from PySide6.QtWidgets import *
 from PySide6.QtGui import *
-from PySide6.QtCore import QObject, QThread, Signal
+from PySide6 import QtCore
+from PySide6.QtCore import QObject, QThread, Signal, QTime
 from mytime import MyTime
 from mainwindow import Ui_MainWindow
 from functools import partial
@@ -20,10 +21,12 @@ class MainWindow(QMainWindow):
         #Alarm
         self.db = Database()
         self.read_from_database()
-        self.ui.btn_add_alarm.clicked.connect(self.new_alarm)
+        
         self.thread_alarm = AlarmThread()
         self.thread_alarm.start()
         self.thread_alarm.signal_show.connect(self.alarm_notification)
+        self.ui.btn_add_alarm.clicked.connect(self.new_alarm)
+        
 
         #Stopwatch
         self.thread_stopwatch = StopwatchThread()
@@ -134,7 +137,23 @@ class MainWindow(QMainWindow):
             msg_box.setText("An error has occurred!")
             msg_box.exec()
 
+    def edit_alarm(self, id, label_time, x):
+        print('EDIT')
+        edited_time = label_time.text()
+        
+        print(edited_time)
+        
+        feedback = self.db.edit_an_alarm(id, edited_time)
+        if feedback==True:
+            pass
+        else:
+            msg_box = QMessageBox()
+            msg_box.setText("An error has occurred!")
+            msg_box.exec()
+
+
     def read_from_database(self):
+        
         for i in reversed(range(self.ui.layout_alarms.count())): 
             self.ui.layout_alarms.itemAt(i).widget().setParent(None)
 
@@ -151,6 +170,7 @@ class MainWindow(QMainWindow):
             new_label_time.setDisplayFormat('hh:mm:ss AP')
             new_delet_btn.setText("❌")
             new_label_name.setText(self.alarms[i][2])
+            new_label_name.setAlignment(QtCore.Qt.AlignCenter)
 
             self.ui.layout_alarms.addWidget(new_label_time, i, 0)
             self.ui.layout_alarms.addWidget(new_label_name, i, 1)
@@ -160,11 +180,13 @@ class MainWindow(QMainWindow):
 
             if self.alarms[i][3]==1:
                 new_checkbox.setChecked(True)
-                
+            
+            
+            new_label_time.timeChanged.connect(partial(self.edit_alarm, self.alarms[i][0],  new_label_time))
             new_checkbox.toggled.connect(partial(self.check_alarm, self.alarms[i][0], new_checkbox))     
             new_delet_btn.clicked.connect(partial(self.remove_alarm, self.alarms[i][0], [new_checkbox,new_label_time, new_label_name, new_delet_btn]))    #B
     
-        print(self.alarms)
+        # print(self.alarms)
 
     def check_alarm(self, id, checkbox, x):
         if checkbox.isChecked():
@@ -185,18 +207,24 @@ class MainWindow(QMainWindow):
             msg_box.setText("An error has occurred!")
             msg_box.exec()
 
+    # ('%I:%M:%S %p')
+        
     def alarm_notification(self):
-        iran_time = pytz.timezone('Asia/Tehran')
-        self.iran_time_str = datetime.now(iran_time).strftime('%H:%M:%S')
+        
+        time_now = pytz.timezone('Asia/Tehran')
+        self.time_now_str = datetime.now(time_now).strftime('%I:%M:%S %p')
 
         for alarm in self.alarms:
-            # print(alarm[1][0:8],self.iran_time_str)
-            if alarm[1][0:8] == self.iran_time_str:
-                # print("*************YES****************")
+
+            # print(str(alarm[1][0:11]),str(self.time_now_str[0:11]))
+            if str(alarm[1][0:11]) == str(self.time_now_str[0:11]):
+                print("*************YES****************")
                 msg = QMessageBox()
                 msg.setWindowTitle("Alarm")
-                msg.setText(f"{alarm[1]}")
+                msg.setText(str(alarm[1][0:11]))
                 msg.exec()
+
+    
             
 
 class WorldClockThread(QThread):
