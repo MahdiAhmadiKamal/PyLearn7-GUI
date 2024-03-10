@@ -17,6 +17,14 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        #Alarm
+        self.db = Database()
+        self.read_from_database()
+        self.ui.btn_add_alarm.clicked.connect(self.new_alarm)
+        self.thread_alarm = AlarmThread()
+        self.thread_alarm.start()
+        self.thread_alarm.signal_show.connect(self.alarm_notification)
+
         #World Clock
         self.thread_worldclock = WorldClockThread()
         self.thread_worldclock.signal_show.connect(self.show_time_worldclock_iran)
@@ -44,13 +52,8 @@ class MainWindow(QMainWindow):
         self.ui.btn_reset_timer.clicked.connect(self.reset_timer)
         self.thread_timer.signal_show.connect(self.show_time_timer)
 
-        #Alarm
-        self.db = Database()
-        self.read_from_database()
-        self.ui.btn_add_alarm.clicked.connect(self.new_alarm)
-        # self.thread_alarm = AlarmThread()
-        # self.thread_alarm.signal_show.connect()
-        # self.thread_alarm.start()
+        
+        
 
     #Stopwatch
     def show_time_stopwatch(self, time):
@@ -134,19 +137,19 @@ class MainWindow(QMainWindow):
         for i in reversed(range(self.ui.layout_alarms.count())): 
             self.ui.layout_alarms.itemAt(i).widget().setParent(None)
 
-        alarms = self.db.get_alarms()
+        self.alarms = self.db.get_alarms()
           
-        for i in range(len(alarms)):
+        for i in range(len(self.alarms)):
             new_label_time = QTimeEdit()
             new_label_name = QLabel()
             new_checkbox = QCheckBox()
             new_delet_btn = QPushButton()
             new_delet_btn.setStyleSheet("background-color: #464646;")
-            
-            new_label_time.setSpecialValueText(alarms[i][1])
+            new_label_time.setStyleSheet("font-family:'Seven Segment'") 
+            new_label_time.setSpecialValueText(self.alarms[i][1])
             new_label_time.setDisplayFormat('hh:mm:ss AP')
             new_delet_btn.setText("❌")
-            new_label_name.setText(alarms[i][2])
+            new_label_name.setText(self.alarms[i][2])
 
             self.ui.layout_alarms.addWidget(new_label_time, i, 0)
             self.ui.layout_alarms.addWidget(new_label_name, i, 1)
@@ -154,13 +157,13 @@ class MainWindow(QMainWindow):
             self.ui.layout_alarms.addWidget(new_checkbox, i, 2)
             self.ui.layout_alarms.addWidget(new_delet_btn, i, 3)
 
-            if alarms[i][3]==1:
+            if self.alarms[i][3]==1:
                 new_checkbox.setChecked(True)
                 
-            new_checkbox.toggled.connect(partial(self.check_alarm, alarms[i][0], new_checkbox))     
-            new_delet_btn.clicked.connect(partial(self.remove_alarm, alarms[i][0], [new_checkbox,new_label_time, new_label_name, new_delet_btn]))    #B
+            new_checkbox.toggled.connect(partial(self.check_alarm, self.alarms[i][0], new_checkbox))     
+            new_delet_btn.clicked.connect(partial(self.remove_alarm, self.alarms[i][0], [new_checkbox,new_label_time, new_label_name, new_delet_btn]))    #B
     
-        print(alarms)
+        print(self.alarms)
 
     def check_alarm(self, id, checkbox, x):
         if checkbox.isChecked():
@@ -181,6 +184,17 @@ class MainWindow(QMainWindow):
             msg_box.setText("An error has occurred!")
             msg_box.exec()
 
+    def alarm_notification(self, current_time):
+        
+        for alarm in self.alarms:
+            print(alarm[1],current_time)
+            if alarm[1][0:8] == current_time:
+                print("YES")
+                msg = QMessageBox()
+                msg.setWindowTitle(f"Alarm: {self.alarms[2]}")
+                msg.setText(f"{alarm}")
+                msg.exec()
+            
 
 class WorldClockThread(QThread):
     signal_show = Signal(MyTime)
@@ -203,18 +217,18 @@ class WorldClockThread(QThread):
             self.signal_show.emit([self.iran_time_str, self.germany_time_str, self.usa_time_str])
 
 
-# class AlarmThread(QThread):
-#     signal_show = Signal(str)
+class AlarmThread(QThread):
+    signal_show = Signal(str)
 
-#     def __init__(self):
-#         super().__init__()
+    def __init__(self):
+        super().__init__()
 
-#     def run(self):
-#         while True:
-#             self.time = time
-#             self.now = self.time.strftime('%I:%M:%S')
-#             self.signal_show.emit(self.now) 
-#             time.sleep(1)
+    def run(self):
+        while True:
+            self.time = time
+            self.now = self.time.strftime('%I:%M:%S')
+            self.signal_show.emit(self.now) 
+            time.sleep(1)
         
     
 class TimerThread(QThread):
@@ -267,10 +281,6 @@ class StopwatchThread(QThread):
         self.time.minute = 0
         self.time.second = 0
         
-
-
-
-
 
 if __name__ == "__main__":
     
