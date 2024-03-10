@@ -12,9 +12,9 @@ class Database:
         tasks = result.fetchall()
         return tasks
     
-    def add_new_alarm(self, new_name, new_time):
+    def add_new_alarm(self, new_time, new_name):
         try:
-            query = f"INSERT INTO alarms_table(name, time) VALUES('{new_name}', '{new_time}')"
+            query = f"INSERT INTO alarms_table(time, name) VALUES('{new_time}', '{new_name}')"
             self.cursor.execute(query)
             self.con.commit()
             return True

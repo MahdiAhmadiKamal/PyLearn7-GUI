@@ -116,12 +116,12 @@ class MainWindow(QMainWindow):
         except(TypeError):
             pass
 
-    #Alarm
+    # Alarm
     def new_alarm(self):
         new_name = self.ui.tbx_new_alarm_name.text()
         new_time = self.ui.bx_time.text()
 
-        feedback = self.db.add_new_alarm(new_name, new_time)
+        feedback = self.db.add_new_alarm(new_time, new_name)
         if feedback == True:
             self.read_from_database()
             self.ui.tbx_new_alarm_name.setText("")    
@@ -137,25 +137,31 @@ class MainWindow(QMainWindow):
         alarms = self.db.get_alarms()
           
         for i in range(len(alarms)):
+            new_label_time = QTimeEdit()
+            new_label_name = QLabel()
             new_checkbox = QCheckBox()
-            new_label = QTimeEdit()
             new_delet_btn = QPushButton()
             new_delet_btn.setStyleSheet("background-color: #464646;")
             
-            new_label.setSpecialValueText(alarms[i][1])
-            
+            new_label_time.setSpecialValueText(alarms[i][1])
+            new_label_time.setDisplayFormat('hh:mm:ss AP')
             new_delet_btn.setText("❌")
+            new_label_name.setText(alarms[i][2])
 
-            self.ui.layout_alarms.addWidget(new_label, i, 0)
-            self.ui.layout_alarms.addWidget(new_checkbox, i, 1)
-            self.ui.layout_alarms.addWidget(new_delet_btn, i, 2)
+            self.ui.layout_alarms.addWidget(new_label_time, i, 0)
+            self.ui.layout_alarms.addWidget(new_label_name, i, 1)
+            
+            self.ui.layout_alarms.addWidget(new_checkbox, i, 2)
+            self.ui.layout_alarms.addWidget(new_delet_btn, i, 3)
 
             if alarms[i][3]==1:
                 new_checkbox.setChecked(True)
                 
             new_checkbox.toggled.connect(partial(self.check_alarm, alarms[i][0], new_checkbox))     
-            new_delet_btn.clicked.connect(partial(self.remove_alarm, alarms[i][0], [new_checkbox,new_label,new_delet_btn]))    #B
+            new_delet_btn.clicked.connect(partial(self.remove_alarm, alarms[i][0], [new_checkbox,new_label_time, new_label_name, new_delet_btn]))    #B
     
+        print(alarms)
+
     def check_alarm(self, id, checkbox, x):
         if checkbox.isChecked():
             situation = 1
