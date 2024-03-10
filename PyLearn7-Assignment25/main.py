@@ -25,14 +25,6 @@ class MainWindow(QMainWindow):
         self.thread_alarm.start()
         self.thread_alarm.signal_show.connect(self.alarm_notification)
 
-        #World Clock
-        self.thread_worldclock = WorldClockThread()
-        self.thread_worldclock.signal_show.connect(self.show_time_worldclock_iran)
-        self.ui.btn_iran_worldclock.clicked.connect(self.show_time_worldclock_iran)
-        self.ui.btn_germany_worldclock.clicked.connect(self.show_time_worldclock_germany)
-        self.ui.btn_usa_worldclock.clicked.connect(self.show_time_worldclock_usa)
-        self.thread_worldclock.start()
-
         #Stopwatch
         self.thread_stopwatch = StopwatchThread()
         self.thread_stopwatch.signal_show.connect(self.show_time_stopwatch)
@@ -40,7 +32,7 @@ class MainWindow(QMainWindow):
         self.ui.btn_start_stopwatch.clicked.connect(self.start_stopwatch)
         self.ui.btn_stop_stopwatch.clicked.connect(self.stop_stopwatch)
         self.ui.btn_reset_stopwatch.clicked.connect(self.reset_stopwatch)
-        
+
         #Timer
         self.h = int(self.ui.tbx_hour_timer.text())
         self.m = int(self.ui.tbx_minute_timer.text())
@@ -52,8 +44,16 @@ class MainWindow(QMainWindow):
         self.ui.btn_reset_timer.clicked.connect(self.reset_timer)
         self.thread_timer.signal_show.connect(self.show_time_timer)
 
+        #World Clock
+        self.thread_worldclock = WorldClockThread()
+        self.thread_worldclock.signal_show.connect(self.show_time_worldclock_iran)
+        self.ui.btn_iran_worldclock.clicked.connect(self.show_time_worldclock_iran)
+        self.ui.btn_germany_worldclock.clicked.connect(self.show_time_worldclock_germany)
+        self.ui.btn_usa_worldclock.clicked.connect(self.show_time_worldclock_usa)
+        self.thread_worldclock.start()
+
         
-        
+    
 
     #Stopwatch
     def show_time_stopwatch(self, time):
@@ -102,6 +102,7 @@ class MainWindow(QMainWindow):
         self.thread_worldclock.signal_show.connect(self.show_time_worldclock_iran)
         try:
             self.ui.lbl_worldclock.setText(str(time[0]))
+            # print(str(time[0]))
         except(TypeError):
             pass
 
@@ -184,15 +185,17 @@ class MainWindow(QMainWindow):
             msg_box.setText("An error has occurred!")
             msg_box.exec()
 
-    def alarm_notification(self, current_time):
-        
+    def alarm_notification(self):
+        iran_time = pytz.timezone('Asia/Tehran')
+        self.iran_time_str = datetime.now(iran_time).strftime('%H:%M:%S')
+
         for alarm in self.alarms:
-            print(alarm[1],current_time)
-            if alarm[1][0:8] == current_time:
-                print("YES")
+            # print(alarm[1][0:8],self.iran_time_str)
+            if alarm[1][0:8] == self.iran_time_str:
+                # print("*************YES****************")
                 msg = QMessageBox()
-                msg.setWindowTitle(f"Alarm: {self.alarms[2]}")
-                msg.setText(f"{alarm}")
+                msg.setWindowTitle("Alarm")
+                msg.setText(f"{alarm[1]}")
                 msg.exec()
             
 

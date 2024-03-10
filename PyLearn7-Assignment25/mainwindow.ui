@@ -134,6 +134,9 @@
         <pointsize>25</pointsize>
        </font>
       </property>
+      <property name="displayFormat">
+       <string>hh:mm:ss</string>
+      </property>
      </widget>
      <widget class="QWidget" name="layoutWidget">
       <property name="geometry">

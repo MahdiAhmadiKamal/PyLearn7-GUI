@@ -143,6 +143,7 @@ class Ui_MainWindow(object):
         self.lbl_worldclock.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"World Clock", None))
         self.btn_add_alarm.setText(QCoreApplication.translate("MainWindow", u"Add Alarm", None))
+        self.bx_time.setDisplayFormat(QCoreApplication.translate("MainWindow", u"hh:mm:ss", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Alarm", None))
         self.lbl_stopwatch.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.btn_start_stopwatch.setText(QCoreApplication.translate("MainWindow", u"Start", None))
