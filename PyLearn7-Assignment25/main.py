@@ -102,16 +102,22 @@ class MainWindow(QMainWindow):
 
     # WorldClock
     def show_time_worldclock_iran(self, time):
+       
         self.thread_worldclock.signal_show.connect(self.show_time_worldclock_iran)
         try:
+            self.setStyleSheet("background-image: url(tehran.jpg); width: 0px; height:0px")
+            
             self.ui.lbl_worldclock.setText(str(time[0]))
             # print(str(time[0]))
         except(TypeError):
             pass
 
     def show_time_worldclock_germany(self, time):
+        
         self.thread_worldclock.signal_show.connect(self.show_time_worldclock_germany)
+        
         try:
+            self.setStyleSheet("background-image: url(berlin.webp)")
             self.ui.lbl_worldclock.setText(str(time[1]))
         except(TypeError):
             pass
@@ -119,6 +125,7 @@ class MainWindow(QMainWindow):
     def show_time_worldclock_usa(self, time):
         self.thread_worldclock.signal_show.connect(self.show_time_worldclock_usa)
         try:
+            self.setStyleSheet("background-image: url(new york.jpg)")
             self.ui.lbl_worldclock.setText(str(time[2]))
         except(TypeError):
             pass
@@ -241,7 +248,7 @@ class WorldClockThread(QThread):
             germany_time = pytz.timezone('Europe/Berlin')
             self.germany_time_str = datetime.now(germany_time).strftime('%H:%M:%S')
 
-            usa_time=pytz.timezone('US/Central')
+            usa_time=pytz.timezone('US/Eastern')
             self.usa_time_str = datetime.now(usa_time).strftime('%H:%M:%S')
 
             time.sleep(1)
