@@ -3,7 +3,7 @@ import sqlite3
 
 class Database:
     def __init__(self):
-        self.con = sqlite3.connect("alarm_database.db")
+        self.con = sqlite3.connect("D:\PyLearn7/Assignments/PyLearn7-GUI/PyLearn7-Assignment25/alarm_database.db")
         self.cursor = self.con.cursor()
 
     def get_alarms(self):
