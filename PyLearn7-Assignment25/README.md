@@ -5,7 +5,7 @@
 <img src="pics\s1.png" width="1034.7" height="460">
 
 ---
-<img src="pics\s1.png" width="1027.3" height="926">
+<img src="pics\s2.png" width="1027.3" height="926">
 
 ---
 ## Python
